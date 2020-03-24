@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using MonoGameProj.Logic.Input;
 using System;
 
 namespace MonoGameProj
@@ -15,6 +16,7 @@ namespace MonoGameProj
 
         Texture2D player;
         Vector2 playerPosition = new Vector2(100, 100);
+        MyKeyboardInput myKeyboardInput = new MyKeyboardInput();
 
         public Game1()
         {
@@ -31,7 +33,6 @@ namespace MonoGameProj
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            previousState = Keyboard.GetState();
 
             base.Initialize();
         }
@@ -72,11 +73,8 @@ namespace MonoGameProj
 
             KeyboardState keyboardState = Keyboard.GetState();
 
-            if (keyboardState.IsKeyDown(Keys.Right))
-            {
-                playerPosition.X += 5;
-                Console.WriteLine("right is being pressed");
-            }
+            playerPosition = myKeyboardInput.HandlePlayerMovement(keyboardState, playerPosition);
+
 
             base.Update(gameTime);
         }
