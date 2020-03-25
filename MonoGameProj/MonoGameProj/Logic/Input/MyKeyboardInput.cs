@@ -1,10 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MonoGameProj.Logic.Input
 {
@@ -19,22 +14,22 @@ namespace MonoGameProj.Logic.Input
                 return currentPosition;
             }
 
-            else if (keyboardState.IsKeyDown(Keys.W))
+            if (keyboardState.IsKeyDown(Keys.W))
             {
                 return new Vector2(currentPosition.X, currentPosition.Y += (moveAmount * -1));
             }
 
-            else if (keyboardState.IsKeyDown(Keys.A))
+            if (keyboardState.IsKeyDown(Keys.A))
             {
                 return new Vector2(currentPosition.X += (moveAmount * -1), currentPosition.Y);
             }
 
-            else if (keyboardState.IsKeyDown(Keys.S))
+            if (keyboardState.IsKeyDown(Keys.S))
             {
                 return new Vector2(currentPosition.X, currentPosition.Y += moveAmount);
             }
 
-            else if (keyboardState.IsKeyDown(Keys.D))
+            if (keyboardState.IsKeyDown(Keys.D))
             {
                 return new Vector2(currentPosition.X += moveAmount, currentPosition.Y);
             }

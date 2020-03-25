@@ -3,27 +3,29 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGameProj.Logic.Game;
 using MonoGameProj.Logic.Input;
-using System;
 
 namespace MonoGameProj
 {
-    /// <summary>
-    /// This is the main type for your game.
-    /// </summary>
     public class Game1 : Game
     {
+        // Game
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
+        private DeltaTimeCalculator deltaTimeCalculator;
 
+        // Textures
         private Texture2D player;
         private Vector2 playerPosition = new Vector2(100, 100);
+
+        // Input
         private MyKeyboardInput myKeyboardInput = new MyKeyboardInput();
-        private DeltaTimeCalculator deltaTimeCalculator;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+
+            deltaTimeCalculator = new DeltaTimeCalculator();
         }
 
         /// <summary>
@@ -78,8 +80,6 @@ namespace MonoGameProj
             KeyboardState keyboardState = Keyboard.GetState();
             playerPosition = myKeyboardInput.HandlePlayerMovement(keyboardState, playerPosition);
 
-
-
             base.Update(gameTime);
         }
 
@@ -92,7 +92,6 @@ namespace MonoGameProj
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-
             spriteBatch.Begin();
 
             spriteBatch.Draw(player, playerPosition, Color.White);

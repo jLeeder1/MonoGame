@@ -42,8 +42,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Game1.cs" />
-    <Compile Include="Logic\Game\DeltaTimeCalculator.cs" />
-    <Compile Include="Logic\Game\IGameLoop.cs" />
+    <Compile Include="Logic\Game\DeltaTime\DeltaTimeCalculator.cs" />
+    <Compile Include="Logic\Game\Interfaces\IGameLoop.cs" />
     <Compile Include="Logic\Input\MyKeyboardInput.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -63,7 +63,9 @@
     <None Include="app.manifest" />
     <None Include="Content\target.xnb" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Logic\Game\Implementations\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
