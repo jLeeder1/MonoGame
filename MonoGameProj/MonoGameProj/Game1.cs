@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using MonoGameProj.Logic.Game;
 using MonoGameProj.Logic.Input;
 using System;
 
@@ -11,12 +12,13 @@ namespace MonoGameProj
     /// </summary>
     public class Game1 : Game
     {
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        private GraphicsDeviceManager graphics;
+        private SpriteBatch spriteBatch;
 
-        Texture2D player;
-        Vector2 playerPosition = new Vector2(100, 100);
-        MyKeyboardInput myKeyboardInput = new MyKeyboardInput();
+        private Texture2D player;
+        private Vector2 playerPosition = new Vector2(100, 100);
+        private MyKeyboardInput myKeyboardInput = new MyKeyboardInput();
+        private DeltaTimeCalculator deltaTimeCalculator;
 
         public Game1()
         {
@@ -70,10 +72,12 @@ namespace MonoGameProj
                 Exit();
 
             // TODO: Add your update logic here
+            deltaTimeCalculator.UpdateDeltaTime(gameTime);
+            var deltaTime = deltaTimeCalculator.DeltaTime;
 
             KeyboardState keyboardState = Keyboard.GetState();
-
             playerPosition = myKeyboardInput.HandlePlayerMovement(keyboardState, playerPosition);
+
 
 
             base.Update(gameTime);

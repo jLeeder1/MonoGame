@@ -42,6 +42,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Game1.cs" />
+    <Compile Include="Logic\Game\DeltaTimeCalculator.cs" />
     <Compile Include="Logic\Game\IGameLoop.cs" />
     <Compile Include="Logic\Input\MyKeyboardInput.cs" />
     <Compile Include="Program.cs" />
