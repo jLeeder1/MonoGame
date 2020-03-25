@@ -1,8 +1,12 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using MonoGameProj.Entities.Player;
 using MonoGameProj.Logic.Game;
-using MonoGameProj.Logic.Input;
+using MonoGameProj.Managers;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace MonoGameProj
 {
@@ -12,13 +16,15 @@ namespace MonoGameProj
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
         private DeltaTimeCalculator deltaTimeCalculator;
+        private List<Player> players;
 
         // Textures
-        private Texture2D player;
-        private Vector2 playerPosition = new Vector2(100, 100);
+        private Texture2D firstPlayerSprite;
 
-        // Input
-        private MyKeyboardInput myKeyboardInput = new MyKeyboardInput();
+        // Game SetUp
+        private PlayerSetupManager playerSetupManager;
+        private GameSetupManager gameSetupManager;
+        private PlayerMovementManager playerMovementManager;
 
         public Game1()
         {
@@ -26,6 +32,10 @@ namespace MonoGameProj
             Content.RootDirectory = "Content";
 
             deltaTimeCalculator = new DeltaTimeCalculator();
+            playerSetupManager = new PlayerSetupManager();
+            players = playerSetupManager.SetupPlayers();
+            gameSetupManager = new GameSetupManager(players);
+            playerMovementManager = gameSetupManager.PlayerMovementManager;
         }
 
         /// <summary>
@@ -51,7 +61,7 @@ namespace MonoGameProj
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            player = Content.Load<Texture2D>("target");
+            firstPlayerSprite = Content.Load<Texture2D>("target");
         }
 
         /// <summary>
@@ -77,8 +87,7 @@ namespace MonoGameProj
             deltaTimeCalculator.UpdateDeltaTime(gameTime);
             var deltaTime = deltaTimeCalculator.DeltaTime;
 
-            KeyboardState keyboardState = Keyboard.GetState();
-            playerPosition = myKeyboardInput.HandlePlayerMovement(keyboardState, playerPosition);
+            playerMovementManager.UpdatePlayerPositions();
 
             base.Update(gameTime);
         }
@@ -94,7 +103,7 @@ namespace MonoGameProj
             // TODO: Add your drawing code here
             spriteBatch.Begin();
 
-            spriteBatch.Draw(player, playerPosition, Color.White);
+            spriteBatch.Draw(firstPlayerSprite, players.First().PlayerPosition, Color.White);
 
             spriteBatch.End();
 
