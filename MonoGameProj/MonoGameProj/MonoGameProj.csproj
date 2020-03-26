@@ -41,10 +41,18 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Constants\DirectionConstants.cs" />
+    <Compile Include="Constants\PlayerConstants.cs" />
+    <Compile Include="Constants\WorldConstants.cs" />
+    <Compile Include="Entities\Player\Player.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Logic\Game\DeltaTime\DeltaTimeCalculator.cs" />
     <Compile Include="Logic\Game\Interfaces\IGameLoop.cs" />
-    <Compile Include="Logic\Input\MyKeyboardInput.cs" />
+    <Compile Include="Input\MyKeyboardInput.cs" />
+    <Compile Include="Managers\GameSetupManager.cs" />
+    <Compile Include="Managers\PlayerKeyAssociationManager.cs" />
+    <Compile Include="Managers\PlayerMovementManager.cs" />
+    <Compile Include="Managers\PlayerSetupManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -64,6 +72,9 @@
     <None Include="Content\target.xnb" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="DependencyResolution\" />
+    <Folder Include="Entities\GameObjects\" />
+    <Folder Include="Entities\NPCs\" />
     <Folder Include="Logic\Game\Implementations\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
