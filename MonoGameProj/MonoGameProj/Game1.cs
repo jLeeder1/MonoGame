@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGameProj.Entities.Player;
 using MonoGameProj.Logic.Game;
+using MonoGameProj.Logic.Game.DeltaTime;
 using MonoGameProj.Managers;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace MonoGameProj
         // Game
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
-        private DeltaTimeCalculator deltaTimeCalculator;
+        private IDeltaTimeCalculator deltaTimeCalculator;
         private List<Player> players;
 
         // Textures
@@ -31,7 +32,8 @@ namespace MonoGameProj
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
-            deltaTimeCalculator = new DeltaTimeCalculator();
+            // deltaTimeCalculator = new DeltaTimeCalculator();
+            // this.deltaTimeCalculator = deltaTimeCalculator;
             playerSetupManager = new PlayerSetupManager();
             players = playerSetupManager.SetupPlayers();
             gameSetupManager = new GameSetupManager(players);
@@ -84,8 +86,8 @@ namespace MonoGameProj
                 Exit();
 
             // TODO: Add your update logic here
-            deltaTimeCalculator.UpdateDeltaTime(gameTime);
-            var deltaTime = deltaTimeCalculator.DeltaTime;
+            // deltaTimeCalculator.UpdateDeltaTime(gameTime);
+            // var deltaTime = deltaTimeCalculator.DeltaTime;
 
             playerMovementManager.UpdatePlayerPositions();
 

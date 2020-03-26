@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MonoGameProj.DependencyInjection;
+using MonoGameProj.Logic.Game.DeltaTime;
+using System;
 
 namespace MonoGameProj
 {
@@ -14,8 +16,14 @@ namespace MonoGameProj
         [STAThread]
         static void Main()
         {
-            using (var game = new Game1())
-                game.Run();
+            var container = DependencyInjectionConfiguration.ConfigureContainer();
+
+            using (var scope = container.BeginLifetimeScope())
+            {
+                using (var game = new Game1())
+                    game.Run();
+            }
+            
         }
     }
 #endif

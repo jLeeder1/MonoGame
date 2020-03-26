@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Input;
 using MonoGameProj.Constants;
 using MonoGameProj.Entities.Player;
+using MonoGameProj.Logic.Game.DeltaTime;
 using MonoGameProj.Logic.Input;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +11,11 @@ namespace MonoGameProj.Managers
     public class PlayerMovementManager
     {
         private IList<Player> playerList;
-        private MyKeyboardInput myKeyboardInput;
+        private IMyKeyboardInput myKeyboardInput;
 
-        public PlayerMovementManager(IList<Player> playerList)
+        public PlayerMovementManager(IList<Player> playerList, IMyKeyboardInput myKeyboardInput)
         {
-            myKeyboardInput = new MyKeyboardInput();
+            this.myKeyboardInput = myKeyboardInput;
 
             this.playerList = playerList;
         }

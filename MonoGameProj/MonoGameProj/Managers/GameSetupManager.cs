@@ -1,4 +1,6 @@
-﻿using MonoGameProj.Entities.Player;
+﻿using Microsoft.Xna.Framework.Input;
+using MonoGameProj.Entities.Player;
+using MonoGameProj.Logic.Input;
 using System.Collections.Generic;
 
 namespace MonoGameProj.Managers
@@ -14,7 +16,7 @@ namespace MonoGameProj.Managers
 
             // Setup
             SetUpPlayerControls(players);
-            PlayerMovementManager = new PlayerMovementManager(players);
+            PlayerMovementManager = new PlayerMovementManager(players, IMyKeyboardInput test);
         }
 
         private void SetUpPlayerControls(List<Player> players)

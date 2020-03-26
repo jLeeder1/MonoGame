@@ -1,10 +1,12 @@
-﻿using Microsoft.Xna.Framework.Input;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using MonoGameProj.Constants;
+using MonoGameProj.Logic.Game.DeltaTime;
 using System.Collections.Generic;
 
 namespace MonoGameProj.Logic.Input
 {
-    public class MyKeyboardInput
+    public class MyKeyboardInput : IMyKeyboardInput
     {
         public List<DirectionConstants> RetrieveKeyPressActions(List<Keys> keys)
         {
