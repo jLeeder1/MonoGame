@@ -20,6 +20,7 @@ namespace MonoGameProj
 
         // Textures
         private Texture2D firstPlayerSprite;
+        private Texture2D bulletSprite;
 
         // Game SetUp
         private PlayerSetupManager playerSetupManager;
@@ -62,6 +63,7 @@ namespace MonoGameProj
 
             // TODO: use this.Content to load your game content here
             firstPlayerSprite = Content.Load<Texture2D>("target");
+            bulletSprite = Content.Load<Texture2D>("bullet");
         }
 
         /// <summary>
@@ -71,6 +73,7 @@ namespace MonoGameProj
         protected override void UnloadContent()
         {
             // TODO: Unload any non ContentManager content here
+            spriteBatch.Dispose();
         }
 
         /// <summary>
@@ -89,6 +92,13 @@ namespace MonoGameProj
 
             playerMovementManager.UpdatePlayerPositions();
 
+            KeyboardState keyboardState = Keyboard.GetState();
+
+            if (keyboardState.IsKeyDown(Keys.P))
+            {
+                players.First().CurrentGun.Shoot(new Vector2(100, 100), 5, 5, Constants.DirectionConstants.RIGHT);
+            }
+
             base.Update(gameTime);
         }
 
@@ -104,6 +114,8 @@ namespace MonoGameProj
             spriteBatch.Begin();
 
             spriteBatch.Draw(firstPlayerSprite, players.First().PlayerPosition, Color.White);
+
+            spriteBatch.Draw(bulletSprite, new Vector2(100, 100), Color.White);
 
             spriteBatch.End();
 

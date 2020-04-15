@@ -14,25 +14,25 @@ namespace MonoGameProj.Logic.Input
             if (keyboardState.IsKeyDown(Keys.W) &&
                 keys.Contains(Keys.W))
             {
-                listOfDirectionsToMove.Add(DirectionConstants.DIRECTION_UP);
+                listOfDirectionsToMove.Add(DirectionConstants.UP);
             }
 
             if (keyboardState.IsKeyDown(Keys.A) &&
                 keys.Contains(Keys.A))
             {
-                listOfDirectionsToMove.Add(DirectionConstants.DIRECTION_LEFT);
+                listOfDirectionsToMove.Add(DirectionConstants.LEFT);
             }
 
             if (keyboardState.IsKeyDown(Keys.S) &&
                 keys.Contains(Keys.S))
             {
-                listOfDirectionsToMove.Add(DirectionConstants.DIRECTION_DOWN);
+                listOfDirectionsToMove.Add(DirectionConstants.DOWN);
             }
 
             if (keyboardState.IsKeyDown(Keys.D) &&
                 keys.Contains(Keys.D))
             {
-                listOfDirectionsToMove.Add(DirectionConstants.DIRECTION_RIGHT);
+                listOfDirectionsToMove.Add(DirectionConstants.RIGHT);
             }
 
             return listOfDirectionsToMove;

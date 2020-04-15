@@ -42,22 +42,22 @@ namespace MonoGameProj.Managers
             var currentPosition = player.PlayerPosition;
             var newPosition = currentPosition;
 
-            if (directions.Contains(DirectionConstants.DIRECTION_UP))
+            if (directions.Contains(DirectionConstants.UP))
             {
                 newPosition.Y = currentPosition.Y + (PlayerConstants.PLAYER_SPEED * WorldConstants.NEGATIVE_NUMBER_MULTIPLIER);
             }
 
-            if (directions.Contains(DirectionConstants.DIRECTION_LEFT))
+            if (directions.Contains(DirectionConstants.LEFT))
             {
                 newPosition.X = currentPosition.X + PlayerConstants.PLAYER_SPEED * WorldConstants.NEGATIVE_NUMBER_MULTIPLIER;
             }
 
-            if (directions.Contains(DirectionConstants.DIRECTION_DOWN))
+            if (directions.Contains(DirectionConstants.DOWN))
             {
                 newPosition.Y = currentPosition.Y + PlayerConstants.PLAYER_SPEED;
             }
 
-            if (directions.Contains(DirectionConstants.DIRECTION_RIGHT))
+            if (directions.Contains(DirectionConstants.RIGHT))
             {
                 newPosition.X = currentPosition.X + PlayerConstants.PLAYER_SPEED;
             }
