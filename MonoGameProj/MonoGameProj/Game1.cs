@@ -2,10 +2,8 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGameProj.Entities.Player;
-using MonoGameProj.Logic.Game;
 using MonoGameProj.Logic.Game.DeltaTime;
 using MonoGameProj.Managers;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 

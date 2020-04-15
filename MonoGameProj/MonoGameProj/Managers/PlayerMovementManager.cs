@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace MonoGameProj.Managers
 {
-    public class PlayerMovementManager
+    public class PlayerMovementManager : IPlayerMovementManager
     {
         private IList<Player> playerList;
         private IMyKeyboardInput myKeyboardInput;
@@ -22,7 +22,7 @@ namespace MonoGameProj.Managers
 
         public void UpdatePlayerPositions()
         {
-            foreach(Player player in playerList)
+            foreach (Player player in playerList)
             {
                 var actions = DetermineKeyPressAction(player.PlayerControlKeys);
 

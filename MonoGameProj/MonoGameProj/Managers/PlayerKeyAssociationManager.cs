@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace MonoGameProj.Managers
 {
-    public class PlayerKeyAssociationManager
+    public class PlayerKeyAssociationManager : IPlayerKeyAssociationManager
     {
         public void AssociateKeysWithPlayers(List<Player> players)
         {
             // Dirty way to get it to work for Now, need to change
-            for(int playersIndex = 0; playersIndex < players.Count; playersIndex++)
+            for (int playersIndex = 0; playersIndex < players.Count; playersIndex++)
             {
-                if(playersIndex == 0)
+                if (playersIndex == 0)
                 {
                     players.ElementAt(playersIndex).PlayerControlKeys = GetPlayerOneKeys();
                 }

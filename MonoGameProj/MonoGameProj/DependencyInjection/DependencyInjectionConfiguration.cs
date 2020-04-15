@@ -1,10 +1,8 @@
 ﻿using Autofac;
-using System;
-using System.Collections.Generic;
+using MonoGameProj.Logic.Input;
+using MonoGameProj.Managers;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MonoGameProj.DependencyInjection
 {
@@ -22,7 +20,24 @@ namespace MonoGameProj.DependencyInjection
                 .Where(t => t.Namespace.Contains("Input"))
                 .As(t => t.GetInterfaces().FirstOrDefault(i => i.Name == "I" + t.Name));
 
-            return builder.Build();
+            // MonoGameProj/Managers
+            builder.RegisterAssemblyTypes(Assembly.Load(nameof(MonoGameProj)))
+                .Where(t => t.Namespace.Contains("Managers"))
+                .As(t => t.GetInterfaces().FirstOrDefault(i => i.Name == "I" + t.Name));
+
+            var container = builder.Build();
+
+            using (var scope = container.BeginLifetimeScope())
+            {
+                //Input
+                var keyboardInput = scope.Resolve<IMyKeyboardInput>();
+
+                //Managers
+                var playerKeyAssociationManger = scope.Resolve<IPlayerKeyAssociationManager>();
+                var playerMovementManger = scope.Resolve<IPlayerMovementManager>();
+            }
+
+            return container;
         }
     }
 }

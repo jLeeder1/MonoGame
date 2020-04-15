@@ -1,5 +1,8 @@
-﻿using MonoGameProj.DependencyInjection;
+﻿using Autofac;
+using MonoGameProj.DependencyInjection;
 using MonoGameProj.Logic.Game.DeltaTime;
+using MonoGameProj.Logic.Input;
+using MonoGameProj.Managers;
 using System;
 
 namespace MonoGameProj
@@ -20,6 +23,10 @@ namespace MonoGameProj
 
             using (var scope = container.BeginLifetimeScope())
             {
+
+                var b = scope.Resolve<IPlayerMovementManager>();
+                var a = scope.Resolve<IMyKeyboardInput>();
+
                 using (var game = new Game1())
                     game.Run();
             }
