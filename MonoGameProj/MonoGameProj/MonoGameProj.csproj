@@ -41,6 +41,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\GameObjects\Guns\Gun.cs" />
     <Compile Include="Entities\GameObjects\Guns\SmallHandgun.cs" />
     <Compile Include="Enums\BulletType.cs" />
@@ -51,15 +52,19 @@
     <Compile Include="Entities\GameObjects\Bullets\Bullet.cs" />
     <Compile Include="Entities\GameObjects\Bullets\SmallHandgunBullet.cs" />
     <Compile Include="Entities\Player\Player.cs" />
+    <Compile Include="Enums\GunType.cs" />
     <Compile Include="Factories\BulletFactory.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="Factories\GunFactory.cs" />
     <Compile Include="Logic\Game\DeltaTime\DeltaTimeCalculator.cs" />
     <Compile Include="Logic\Game\Interfaces\IGameLoop.cs" />
     <Compile Include="Input\MyKeyboardInput.cs" />
+    <Compile Include="Managers\BulletManager.cs" />
     <Compile Include="Managers\GameSetupManager.cs" />
     <Compile Include="Managers\PlayerKeyAssociationManager.cs" />
     <Compile Include="Managers\PlayerMovementManager.cs" />
     <Compile Include="Managers\PlayerSetupManager.cs" />
+    <Compile Include="Managers\RenderingManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
