@@ -34,7 +34,7 @@ namespace MonoGameProj
 
             deltaTimeCalculator = new DeltaTimeCalculator();
             playerSetupManager = new PlayerSetupManager();
-            players = playerSetupManager.SetupPlayers();
+            players = playerSetupManager.SetupPlayers(1, firstPlayerSprite);
             gameSetupManager = new GameSetupManager(players);
             playerMovementManager = gameSetupManager.PlayerMovementManager;
         }

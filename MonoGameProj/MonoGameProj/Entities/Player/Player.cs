@@ -6,20 +6,14 @@ using System.Collections.Generic;
 
 namespace MonoGameProj.Entities.Player
 {
-    public class Player
+    public class Player : Entity
     {
-        private Texture2D playerSprite;
-
-        public Player()
+        public Player(Texture2D sprite, Vector2 position, Gun gun) : base(sprite, position, gun)
         {
-            PlayerPosition = new Vector2(100, 100);
-            CurrentGun = new SmallHandgun();
         }
 
         public List<Keys> PlayerControlKeys { get; set; }
 
         public Vector2 PlayerPosition { get; set; }
-
-        public Gun CurrentGun { get; set; }
     }
 }
