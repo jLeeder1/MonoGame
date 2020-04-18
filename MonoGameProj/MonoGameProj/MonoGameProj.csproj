@@ -41,10 +41,17 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Constants\DirectionConstants.cs" />
+    <Compile Include="Entities\GameObjects\Guns\Gun.cs" />
+    <Compile Include="Entities\GameObjects\Guns\SmallHandgun.cs" />
+    <Compile Include="Enums\BulletType.cs" />
+    <Compile Include="Enums\DirectionConstants.cs" />
+    <Compile Include="Constants\EntityConstants.cs" />
     <Compile Include="Constants\PlayerConstants.cs" />
     <Compile Include="Constants\WorldConstants.cs" />
+    <Compile Include="Entities\GameObjects\Bullets\Bullet.cs" />
+    <Compile Include="Entities\GameObjects\Bullets\SmallHandgunBullet.cs" />
     <Compile Include="Entities\Player\Player.cs" />
+    <Compile Include="Factories\BulletFactory.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Logic\Game\DeltaTime\DeltaTimeCalculator.cs" />
     <Compile Include="Logic\Game\Interfaces\IGameLoop.cs" />
@@ -69,11 +76,11 @@
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
     <None Include="app.manifest" />
+    <None Include="Content\bullet.xnb" />
     <None Include="Content\target.xnb" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DependencyResolution\" />
-    <Folder Include="Entities\GameObjects\" />
     <Folder Include="Entities\NPCs\" />
     <Folder Include="Logic\Game\Implementations\" />
   </ItemGroup>
