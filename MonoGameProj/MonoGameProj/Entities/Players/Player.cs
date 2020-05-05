@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Input;
 using MonoGameProj.Entities.GameObjects.Guns;
 using System.Collections.Generic;
 
-namespace MonoGameProj.Entities.Player
+namespace MonoGameProj.Entities.Players
 {
     public class Player : Entity
     {

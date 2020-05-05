@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using MonoGameProj.Entities.Player;
+using MonoGameProj.Entities.Players;
 using MonoGameProj.Logic.Game;
 using MonoGameProj.Managers;
 using System;
@@ -26,6 +26,7 @@ namespace MonoGameProj
         private PlayerSetupManager playerSetupManager;
         private GameSetupManager gameSetupManager;
         private PlayerMovementManager playerMovementManager;
+        private RenderingManager renderingManager;
 
         public Game1()
         {
@@ -116,6 +117,8 @@ namespace MonoGameProj
             spriteBatch.Draw(firstPlayerSprite, players.First().PlayerPosition, Color.White);
 
             spriteBatch.Draw(bulletSprite, new Vector2(100, 100), Color.White);
+
+            // renderingManager.DrawGameObjects(bullets, players, spriteBatch);
 
             spriteBatch.End();
 

@@ -4,9 +4,6 @@ using MonoGameProj.Entities;
 using MonoGameProj.Entities.GameObjects;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MonoGameProj.Managers
 {
@@ -19,9 +16,9 @@ namespace MonoGameProj.Managers
             this.spriteBatch = spriteBatch;
         }
 
-        public void DrawGameObjects(List<Bullet> bullets, List<Entity> entities)
+        public void DrawGameObjects(List<Entity> entities)
         {
-            DrawBullets(bullets);
+            // DrawBullets(bullets);
             DrawEntities(entities);
         }
 

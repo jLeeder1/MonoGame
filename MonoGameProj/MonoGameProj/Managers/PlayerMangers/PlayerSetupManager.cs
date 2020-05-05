@@ -1,8 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using MonoGameProj.Entities;
 using MonoGameProj.Entities.GameObjects.Guns;
-using MonoGameProj.Entities.Player;
+using MonoGameProj.Entities.Players;
 using MonoGameProj.Helpers;
 using System.Collections.Generic;
 
