@@ -1,16 +1,17 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGameProj.Entities.GameObjects.Guns;
+using MonoGameProj.Enums;
 
 namespace MonoGameProj.Entities
 {
     public class Entity
     {
-        public Entity(Texture2D sprite, Vector2 position, Gun gun)
+        public Entity(Vector2 position, Gun gun)
         {
-            Sprite = sprite;
             Position = position;
             CurrentGun = gun;
+            EntityType = EntityType.NPC;
         }
 
         public Texture2D Sprite { get; set; }
@@ -18,5 +19,7 @@ namespace MonoGameProj.Entities
         public Vector2 Position { get; set; }
 
         public Gun CurrentGun { get; set; }
+
+        public EntityType EntityType { get; set; }
     }
 }

@@ -41,17 +41,25 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\AssetLoader.cs" />
+    <Compile Include="Constants\AssetNames.cs" />
+    <Compile Include="Entities\Collections\BulletList.cs" />
+    <Compile Include="Entities\Collections\EntityList.cs" />
+    <Compile Include="Entities\Collections\IGameCollection.cs" />
+    <Compile Include="Entities\Collections\PlayerList.cs" />
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\GameObjects\Guns\Gun.cs" />
     <Compile Include="Entities\GameObjects\Guns\SmallHandgun.cs" />
     <Compile Include="Enums\BulletType.cs" />
+    <Compile Include="Enums\ContentEnum.cs" />
     <Compile Include="Enums\DirectionConstants.cs" />
     <Compile Include="Constants\EntityConstants.cs" />
     <Compile Include="Constants\PlayerConstants.cs" />
     <Compile Include="Constants\WorldConstants.cs" />
     <Compile Include="Entities\GameObjects\Bullets\Bullet.cs" />
     <Compile Include="Entities\GameObjects\Bullets\SmallHandgunBullet.cs" />
-    <Compile Include="Entities\Player\Player.cs" />
+    <Compile Include="Entities\Players\Player.cs" />
+    <Compile Include="Enums\EntityType.cs" />
     <Compile Include="Enums\GunType.cs" />
     <Compile Include="Factories\BulletFactory.cs" />
     <Compile Include="Game1.cs" />
@@ -60,10 +68,11 @@
     <Compile Include="Logic\Game\Interfaces\IGameLoop.cs" />
     <Compile Include="Input\MyKeyboardInput.cs" />
     <Compile Include="Managers\BulletManager.cs" />
+    <Compile Include="Managers\GameManager.cs" />
     <Compile Include="Managers\GameSetupManager.cs" />
-    <Compile Include="Managers\PlayerKeyAssociationManager.cs" />
-    <Compile Include="Managers\PlayerMovementManager.cs" />
-    <Compile Include="Managers\PlayerSetupManager.cs" />
+    <Compile Include="Managers\PlayerMangers\PlayerKeyAssociationManager.cs" />
+    <Compile Include="Managers\PlayerMangers\PlayerMovementManager.cs" />
+    <Compile Include="Managers\PlayerMangers\PlayerSetupManager.cs" />
     <Compile Include="Managers\RenderingManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

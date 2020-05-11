@@ -1,23 +1,23 @@
 ﻿using MonoGameProj.Entities.GameObjects;
 using System.Collections.Generic;
 
-namespace MonoGameProj.Managers
+namespace MonoGameProj.Entities.Collections
 {
-    public class BulletManager
+    public class BulletList
     {
         private List<Bullet> bullets;
 
-        public BulletManager()
+        public BulletList()
         {
             bullets = new List<Bullet>();
         }
 
-        public void AddBulletToList(Bullet bullet)
+        public List<Bullet> GetEntityList()
         {
-            bullets.Add(bullet);
+            return bullets;
         }
 
-        public void RemoveBulletFromList(Bullet bullet)
+        public void RemoveEntity(Bullet bullet)
         {
             bullets.Remove(bullet);
         }

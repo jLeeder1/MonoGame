@@ -1,11 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using MonoGameProj.Entities.Player;
 using MonoGameProj.Logic.Game;
 using MonoGameProj.Managers;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace MonoGameProj
@@ -16,16 +13,12 @@ namespace MonoGameProj
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
         private DeltaTimeCalculator deltaTimeCalculator;
-        private List<Player> players;
 
         // Textures
-        private Texture2D firstPlayerSprite;
         private Texture2D bulletSprite;
 
-        // Game SetUp
-        private PlayerSetupManager playerSetupManager;
-        private GameSetupManager gameSetupManager;
-        private PlayerMovementManager playerMovementManager;
+        // Game manager
+        private GameManager gameManager;
 
         public Game1()
         {
@@ -33,10 +26,8 @@ namespace MonoGameProj
             Content.RootDirectory = "Content";
 
             deltaTimeCalculator = new DeltaTimeCalculator();
-            playerSetupManager = new PlayerSetupManager();
-            players = playerSetupManager.SetupPlayers(1, firstPlayerSprite);
-            gameSetupManager = new GameSetupManager(players);
-            playerMovementManager = gameSetupManager.PlayerMovementManager;
+
+            
         }
 
         /// <summary>
@@ -50,6 +41,8 @@ namespace MonoGameProj
             // TODO: Add your initialization logic here
 
             base.Initialize();
+
+            gameManager = new GameManager(Content);
         }
 
         /// <summary>
@@ -62,7 +55,6 @@ namespace MonoGameProj
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            firstPlayerSprite = Content.Load<Texture2D>("target");
             bulletSprite = Content.Load<Texture2D>("bullet");
         }
 
@@ -90,14 +82,7 @@ namespace MonoGameProj
             deltaTimeCalculator.UpdateDeltaTime(gameTime);
             var deltaTime = deltaTimeCalculator.DeltaTime;
 
-            playerMovementManager.UpdatePlayerPositions();
-
-            KeyboardState keyboardState = Keyboard.GetState();
-
-            if (keyboardState.IsKeyDown(Keys.P))
-            {
-                players.First().CurrentGun.Shoot(new Vector2(100, 100), 5, 5, Constants.DirectionConstants.RIGHT);
-            }
+            // gameManager.Update();
 
             base.Update(gameTime);
         }
@@ -113,9 +98,13 @@ namespace MonoGameProj
             // TODO: Add your drawing code here
             spriteBatch.Begin();
 
-            spriteBatch.Draw(firstPlayerSprite, players.First().PlayerPosition, Color.White);
+            // spriteBatch.Draw(firstPlayerSprite, players.First().PlayerPosition, Color.White);
+
+            gameManager.Draw(spriteBatch);
 
             spriteBatch.Draw(bulletSprite, new Vector2(100, 100), Color.White);
+
+            // renderingManager.DrawGameObjects(bullets, players, spriteBatch);
 
             spriteBatch.End();
 

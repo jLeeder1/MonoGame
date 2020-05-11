@@ -1,20 +1,30 @@
-﻿using MonoGameProj.Entities.Player;
+﻿using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
+using MonoGameProj.Entities.Collections;
+using MonoGameProj.Entities.Players;
 using System.Collections.Generic;
 
 namespace MonoGameProj.Managers
 {
     public class GameSetupManager
     {
+        private readonly PlayerSetupManager playerSetupManager;
         private PlayerKeyAssociationManager playerKeyAssociationManager;
+        private ContentManager content;
 
-        public GameSetupManager(List<Player> players)
+        public GameSetupManager(ContentManager content)
         {
-            // Dependencies
+            this.content = content;
             playerKeyAssociationManager = new PlayerKeyAssociationManager();
+            playerSetupManager = new PlayerSetupManager(content);
+        }
 
-            // Setup
+        public PlayerList SetUpPlayers()
+        {
+            var players = playerSetupManager.SetupPlayers(1);
             SetUpPlayerControls(players);
-            PlayerMovementManager = new PlayerMovementManager(players);
+
+            return new PlayerList(players);
         }
 
         private void SetUpPlayerControls(List<Player> players)
@@ -22,6 +32,7 @@ namespace MonoGameProj.Managers
             this.playerKeyAssociationManager.AssociateKeysWithPlayers(players);
         }
 
+        // Need to change this
         public PlayerMovementManager PlayerMovementManager { get; private set; }
 
     }
