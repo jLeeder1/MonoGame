@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Input;
 using MonoGameProj.Constants;
-using MonoGameProj.Entities.Player;
+using MonoGameProj.Entities.Players;
 using MonoGameProj.Logic.Input;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,19 +9,16 @@ namespace MonoGameProj.Managers
 {
     public class PlayerMovementManager
     {
-        private IList<Player> playerList;
         private MyKeyboardInput myKeyboardInput;
 
-        public PlayerMovementManager(IList<Player> playerList)
+        public PlayerMovementManager()
         {
             myKeyboardInput = new MyKeyboardInput();
-
-            this.playerList = playerList;
         }
 
-        public void UpdatePlayerPositions()
+        public void UpdatePlayerPositions(List<Player> players)
         {
-            foreach(Player player in playerList)
+            foreach(Player player in players)
             {
                 var actions = DetermineKeyPressAction(player.PlayerControlKeys);
 

@@ -24,5 +24,10 @@ namespace MonoGameProj.Entities.Collections
         {
             entities.Remove(entity);
         }
+
+        public void AddListRange(List<Entity> listToConcat)
+        {
+            entities.AddRange(listToConcat);
+        }
     }
 }

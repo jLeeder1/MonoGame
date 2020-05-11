@@ -8,8 +8,9 @@ namespace MonoGameProj.Entities.Players
 {
     public class Player : Entity
     {
-        public Player(Texture2D sprite, Vector2 position, Gun gun) : base(sprite, position, gun)
+        public Player(Vector2 position, Gun gun) : base(position, gun)
         {
+            EntityType = Enums.EntityType.PLAYER;
         }
 
         public List<Keys> PlayerControlKeys { get; set; }
