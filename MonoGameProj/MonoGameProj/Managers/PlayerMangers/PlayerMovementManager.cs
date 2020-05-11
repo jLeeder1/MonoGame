@@ -36,7 +36,7 @@ namespace MonoGameProj.Managers
 
         private void UpdatePlayerPostion(Player player, List<DirectionConstants> directions)
         {
-            var currentPosition = player.PlayerPosition;
+            var currentPosition = player.Position;
             var newPosition = currentPosition;
 
             if (directions.Contains(DirectionConstants.UP))
@@ -59,7 +59,7 @@ namespace MonoGameProj.Managers
                 newPosition.X = currentPosition.X + PlayerConstants.PLAYER_SPEED;
             }
 
-            player.PlayerPosition = newPosition;
+            player.Position = newPosition;
         }
     }
 }
