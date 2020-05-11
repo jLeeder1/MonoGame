@@ -14,7 +14,5 @@ namespace MonoGameProj.Entities.Players
         }
 
         public List<Keys> PlayerControlKeys { get; set; }
-
-        public Vector2 PlayerPosition { get; set; }
     }
 }

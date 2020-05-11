@@ -31,9 +31,5 @@ namespace MonoGameProj.Managers
         {
             this.playerKeyAssociationManager.AssociateKeysWithPlayers(players);
         }
-
-        // Need to change this
-        public PlayerMovementManager PlayerMovementManager { get; private set; }
-
     }
 }

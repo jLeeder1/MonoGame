@@ -19,7 +19,6 @@ namespace MonoGameProj.Managers
         // Managers
         private GameSetupManager gameSetupManager;
         private PlayerMovementManager playerMovementManager;
-        private ContentManager content;
 
         // Rendering
         private RenderingManager renderingManager;
@@ -29,8 +28,6 @@ namespace MonoGameProj.Managers
 
         public GameManager(ContentManager content)
         {
-            this.content = content;
-
             // Collections
             entityList = new EntityList();
 
@@ -43,7 +40,7 @@ namespace MonoGameProj.Managers
             // Game setup
             gameSetupManager = new GameSetupManager(content);
             playerList = gameSetupManager.SetUpPlayers();
-            playerMovementManager = gameSetupManager.PlayerMovementManager;
+            playerMovementManager = new PlayerMovementManager();
         }
 
         public void Update()

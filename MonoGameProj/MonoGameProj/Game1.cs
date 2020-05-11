@@ -24,10 +24,7 @@ namespace MonoGameProj
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-
             deltaTimeCalculator = new DeltaTimeCalculator();
-
-            
         }
 
         /// <summary>
@@ -82,7 +79,7 @@ namespace MonoGameProj
             deltaTimeCalculator.UpdateDeltaTime(gameTime);
             var deltaTime = deltaTimeCalculator.DeltaTime;
 
-            // gameManager.Update();
+            gameManager.Update();
 
             base.Update(gameTime);
         }
@@ -98,13 +95,9 @@ namespace MonoGameProj
             // TODO: Add your drawing code here
             spriteBatch.Begin();
 
-            // spriteBatch.Draw(firstPlayerSprite, players.First().PlayerPosition, Color.White);
-
             gameManager.Draw(spriteBatch);
 
-            spriteBatch.Draw(bulletSprite, new Vector2(100, 100), Color.White);
-
-            // renderingManager.DrawGameObjects(bullets, players, spriteBatch);
+            // spriteBatch.Draw(bulletSprite, new Vector2(100, 100), Color.White);
 
             spriteBatch.End();
 
