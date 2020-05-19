@@ -1,10 +1,11 @@
 ﻿namespace MonoGameProj.Constants
 {
-    public enum DirectionConstants
+    public enum ActionConstants
     {
         UP,
         LEFT,
         DOWN,
-        RIGHT
+        RIGHT,
+        SHOOT
     }
 }

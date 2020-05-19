@@ -1,11 +1,8 @@
 ﻿using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 using MonoGameProj.Entities.Collections;
 using MonoGameProj.Entities.Players;
-using MonoGameProj.Logic.Input;
-using System;
-using System.Collections.Generic;
+using MonoGameProj.Managers.PlayerMangers;
 
 namespace MonoGameProj.Managers
 {
@@ -17,36 +14,33 @@ namespace MonoGameProj.Managers
         private BulletList bulletList;
 
         // Managers
-        private GameSetupManager gameSetupManager;
-        private PlayerMovementManager playerMovementManager;
+        private GameSetup gameSetupManager;
+        private PlayerActionManager playerActionManager;
 
         // Rendering
         private RenderingManager renderingManager;
-
-        // Input 
-        private MyKeyboardInput myKeyboardInput;
 
         public GameManager(ContentManager content)
         {
             // Collections
             entityList = new EntityList();
+            bulletList = new BulletList();
 
             // Rendering
             renderingManager = new RenderingManager();
 
-            // Input
-            myKeyboardInput = new MyKeyboardInput();
-
             // Game setup
-            gameSetupManager = new GameSetupManager(content);
+            gameSetupManager = new GameSetup(content);
             playerList = gameSetupManager.SetUpPlayers();
-            playerMovementManager = new PlayerMovementManager();
+            playerActionManager = new PlayerActionManager();
         }
 
         public void Update()
         {
-            playerMovementManager.UpdatePlayerPositions(playerList.GetEntityList());
-            Console.WriteLine("Game manager update");
+            foreach(Player player in playerList.GetEntityList())
+            {
+                playerActionManager.HandlePlayerActions(player, bulletList);
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)

@@ -6,17 +6,17 @@ using System.Collections.Generic;
 
 namespace MonoGameProj.Managers
 {
-    public class GameSetupManager
+    public class GameSetup
     {
-        private readonly PlayerSetupManager playerSetupManager;
-        private PlayerKeyAssociationManager playerKeyAssociationManager;
+        private readonly PlayerSetup playerSetupManager;
+        private PlayerKeyAssociation playerKeyAssociationManager;
         private ContentManager content;
 
-        public GameSetupManager(ContentManager content)
+        public GameSetup(ContentManager content)
         {
             this.content = content;
-            playerKeyAssociationManager = new PlayerKeyAssociationManager();
-            playerSetupManager = new PlayerSetupManager(content);
+            playerKeyAssociationManager = new PlayerKeyAssociation();
+            playerSetupManager = new PlayerSetup(content);
         }
 
         public PlayerList SetUpPlayers()

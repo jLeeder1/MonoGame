@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGameProj.Logic.Game;
 using MonoGameProj.Managers;
-using System.Linq;
+using System;
 
 namespace MonoGameProj
 {
