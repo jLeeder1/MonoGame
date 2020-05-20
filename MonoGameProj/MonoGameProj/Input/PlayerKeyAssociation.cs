@@ -1,14 +1,12 @@
 ﻿using Microsoft.Xna.Framework.Input;
+using MonoGameProj.Constants;
 using MonoGameProj.Entities.Players;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MonoGameProj.Managers
 {
-    public class PlayerKeyAssociationManager
+    public class PlayerKeyAssociation
     {
         public void AssociateKeysWithPlayers(List<Player> players)
         {
@@ -26,27 +24,27 @@ namespace MonoGameProj.Managers
             }
         }
 
-        private List<Keys> GetPlayerOneKeys()
+        private Dictionary<Keys, ActionConstants> GetPlayerOneKeys()
         {
-            return new List<Keys>
+            return new Dictionary<Keys, ActionConstants>()
             {
-                Keys.W, // Up
-                Keys.A, // Down
-                Keys.S, // Left
-                Keys.D, // Right
-                Keys.T  // Shoot
+                {Keys.W, ActionConstants.UP},
+                {Keys.A, ActionConstants.LEFT},
+                {Keys.S, ActionConstants.DOWN},
+                {Keys.D, ActionConstants.RIGHT},
+                {Keys.T, ActionConstants.SHOOT},
             };
         }
 
-        private List<Keys> GetPlayerTwoKeys()
+        private Dictionary<Keys, ActionConstants> GetPlayerTwoKeys()
         {
-            return new List<Keys>
+            return new Dictionary<Keys, ActionConstants>()
             {
-                Keys.Up,
-                Keys.Left,
-                Keys.Down,
-                Keys.Right,
-                Keys.OemOpenBrackets
+                {Keys.Up, ActionConstants.UP},
+                {Keys.Left, ActionConstants.LEFT},
+                {Keys.Down, ActionConstants.DOWN},
+                {Keys.Right, ActionConstants.RIGHT},
+                {Keys.OemOpenBrackets, ActionConstants.SHOOT},
             };
         }
     }

@@ -10,13 +10,13 @@ using System.Collections.Generic;
 
 namespace MonoGameProj.Managers
 {
-    public class PlayerSetupManager
+    public class PlayerSetup
     {
         private GunFactory gunFactory;
         private ContentManager content;
         private AssetLoader assetLoader;
 
-        public PlayerSetupManager(ContentManager content)
+        public PlayerSetup(ContentManager content)
         {
             gunFactory = new GunFactory();
             this.content = content;

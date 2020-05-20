@@ -9,20 +9,21 @@ namespace MonoGameProj.Entities.GameObjects.Guns
     {
         private BulletFactory bulletFactory;
         protected BulletType bulletType;
+        protected EntityDimensions dimensions;
 
         public Gun()
         {
             bulletFactory = new BulletFactory();
         }
 
-        public Bullet Shoot(Vector2 entityCurrentPos, int entityWidth, int entityHeight, DirectionConstants direction)
+        public Bullet Shoot(Vector2 entityCurrentPos, EntityDimensions dimensions, ActionConstants direction)
         {
             Vector2 position;
-            var yPos = entityCurrentPos.Y + (entityHeight / 2);
+            var yPos = entityCurrentPos.Y + (dimensions.Height / 2);
 
-            if (direction == DirectionConstants.RIGHT)
+            if (direction == ActionConstants.RIGHT)
             {
-                var xPos = entityCurrentPos.X + entityWidth;
+                var xPos = entityCurrentPos.X + dimensions.Width;
                 position = new Vector2(xPos, yPos);
                 
             }
@@ -31,9 +32,6 @@ namespace MonoGameProj.Entities.GameObjects.Guns
                 var xPos = entityCurrentPos.X;
                 position = new Vector2(xPos, yPos);
             }
-
-            // FOR DEBUGGING WHILE BULLET DRAW AND MOVEMENT LOGIC NOT IMPLEMENTED
-            Console.WriteLine("Bang");
 
             return bulletFactory.CreateBullet(bulletType, position);
         }
