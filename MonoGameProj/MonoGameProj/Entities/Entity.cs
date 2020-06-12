@@ -21,7 +21,7 @@ namespace MonoGameProj.Entities
             };
         }
 
-        public Texture2D Sprite { get; set; }
+        public string Sprite { get; set; }
 
         public EntityDimensions Dimensions { get; set; }
 

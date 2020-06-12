@@ -19,7 +19,7 @@ namespace MonoGameProj.Assets
         {
             if (textureMap.ContainsKey(textureName))
             {
-                return textureMap["textuireName"];
+                return textureMap[textureName];
             }
             
             // If texture is not in the Dictionary load it and add it

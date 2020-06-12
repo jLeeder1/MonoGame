@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MonoGameProj.Assets;
 using MonoGameProj.Entities;
 using MonoGameProj.Entities.GameObjects;
 using MonoGameProj.Entities.Players;
@@ -9,11 +10,18 @@ namespace MonoGameProj.Managers
 {
     public class RenderingManager
     {
+        private AssetLoader assetLoader;
+
+        public RenderingManager(AssetLoader assetLoader)
+        {
+            this.assetLoader = assetLoader;
+        }
+
         public void DrawBullets(List<Bullet> bullets, SpriteBatch spriteBatch)
         {
             foreach(Bullet bullet in bullets)
             {
-                spriteBatch.Draw(bullet.BulletSprite, bullet.Position, Color.White);
+                spriteBatch.Draw(assetLoader.RetrieveSpiteTexture(bullet.Sprite), bullet.Position, Color.White);
             }
         }
 
@@ -21,7 +29,7 @@ namespace MonoGameProj.Managers
         {
             foreach (Entity entity in entities)
             {
-                spriteBatch.Draw(entity.Sprite, entity.Position, Color.White);
+                spriteBatch.Draw(assetLoader.RetrieveSpiteTexture(entity.Sprite), entity.Position, Color.White);
             }
         }
 
@@ -29,7 +37,7 @@ namespace MonoGameProj.Managers
         {
             foreach (Player player in players)
             {
-                spriteBatch.Draw(player.Sprite, player.Position, Color.White);
+                spriteBatch.Draw(assetLoader.RetrieveSpiteTexture(player.Sprite), player.Position, Color.White);
             }
         }
     }

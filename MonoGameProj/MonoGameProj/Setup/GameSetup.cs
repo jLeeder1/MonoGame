@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using MonoGameProj.Assets;
 using MonoGameProj.Entities.Collections;
 using MonoGameProj.Entities.Players;
 using System.Collections.Generic;
@@ -8,20 +9,18 @@ namespace MonoGameProj.Managers
 {
     public class GameSetup
     {
-        private readonly PlayerSetup playerSetupManager;
+        private readonly PlayerSetup playerSetup;
         private PlayerKeyAssociation playerKeyAssociationManager;
-        private ContentManager content;
 
-        public GameSetup(ContentManager content)
+        public GameSetup()
         {
-            this.content = content;
             playerKeyAssociationManager = new PlayerKeyAssociation();
-            playerSetupManager = new PlayerSetup(content);
+            playerSetup = new PlayerSetup();
         }
 
         public PlayerList SetUpPlayers()
         {
-            var players = playerSetupManager.SetupPlayers(1);
+            var players = playerSetup.SetupPlayers(1);
             SetUpPlayerControls(players);
 
             return new PlayerList(players);

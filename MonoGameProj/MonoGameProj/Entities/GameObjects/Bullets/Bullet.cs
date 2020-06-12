@@ -14,7 +14,7 @@ namespace MonoGameProj.Entities.GameObjects
         public int Weight { get; set; }
         public int BaseSpeed { get; set; }
         public int Speed { get; set; }
-        public Texture2D BulletSprite { get; set; }
+        public string Sprite { get; set; }
         public Vector2 Position { get; set; }
         public EntityDimensions Dimensions { get; set; }
         public BulletType BulletType { get; set; }
