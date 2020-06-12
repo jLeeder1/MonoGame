@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using MonoGameProj.Assets;
 using MonoGameProj.Constants;
 using MonoGameProj.Factories;
 using System;

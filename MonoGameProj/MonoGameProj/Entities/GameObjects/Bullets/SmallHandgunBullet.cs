@@ -15,6 +15,7 @@ namespace MonoGameProj.Entities.GameObjects
                 Height = EntityConstants.BulletDimensionConstants.Handgun_Height_Value
             };
 
+            Sprite = EntityConstants.SmallHandgunConstants.Small_Handgun_Texture_Name;
             BulletType = BulletType.SMALL_HANDGUN;
         }
     }

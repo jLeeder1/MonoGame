@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.Graphics;
 using MonoGameProj.Assets;
 using MonoGameProj.Constants;
 using MonoGameProj.Entities.GameObjects.Guns;
@@ -13,14 +12,10 @@ namespace MonoGameProj.Managers
     public class PlayerSetup
     {
         private GunFactory gunFactory;
-        private ContentManager content;
-        private AssetLoader assetLoader;
 
-        public PlayerSetup(ContentManager content)
+        public PlayerSetup()
         {
             gunFactory = new GunFactory();
-            this.content = content;
-            assetLoader = new AssetLoader(content);
         }
 
         public List<Player> SetupPlayers(int numOfPlayers)
@@ -55,12 +50,7 @@ namespace MonoGameProj.Managers
 
             textureName = AssetNames.PlayerAssets.Default_Player_Sprite;
 
-            SetPlayerTexture(player, textureName);
-        }
-
-        private void SetPlayerTexture(Player player, string textureName)
-        {
-            player.Sprite = assetLoader.RetrieveSpiteTexture(textureName);
+            player.Sprite = textureName;
         }
     }
 }
