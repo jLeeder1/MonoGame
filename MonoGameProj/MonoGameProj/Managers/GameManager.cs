@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using MonoGameProj.Entities.Collections;
 using MonoGameProj.Entities.Players;
 using MonoGameProj.Managers.PlayerMangers;
+using System;
 
 namespace MonoGameProj.Managers
 {
@@ -41,11 +42,14 @@ namespace MonoGameProj.Managers
             {
                 playerActionManager.HandlePlayerActions(player, bulletList);
             }
+
+            Console.WriteLine(bulletList.GetEntityList().Count);
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             renderingManager.DrawPlayers(playerList.GetEntityList(), spriteBatch);
+            renderingManager.DrawBullets(bulletList.GetEntityList(), spriteBatch);
         }
     }
 }

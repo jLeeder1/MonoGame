@@ -13,5 +13,10 @@ namespace MonoGameProj.Constants
             public static readonly string Default_Player_Sprite = "target";
             public static readonly string Player_One_Sprite = "target";
         }
+
+        public static class BulletAssets
+        {
+            public static readonly string Default_Bullet_Sprite = "bullet";
+        }
     }
 }
