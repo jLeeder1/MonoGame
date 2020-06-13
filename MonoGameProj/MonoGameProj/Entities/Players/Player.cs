@@ -11,7 +11,7 @@ namespace MonoGameProj.Entities.Players
         public Player(Vector2 position, Gun gun) : base(position, gun)
         {
             EntityType = Enums.EntityType.PLAYER;
-            CurrentDirection = ActionConstants.RIGHT;
+            Direction = ActionConstants.RIGHT;
         }
 
         public Dictionary<Keys, ActionConstants> PlayerControlKeys { get; set; }

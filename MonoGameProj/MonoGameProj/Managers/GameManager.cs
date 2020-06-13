@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using MonoGameProj.Assets;
 using MonoGameProj.Entities.Collections;
+using MonoGameProj.Entities.GameObjects;
 using MonoGameProj.Entities.Players;
 using MonoGameProj.Managers.PlayerMangers;
 using System;
@@ -18,6 +19,7 @@ namespace MonoGameProj.Managers
         // Managers
         private GameSetup gameSetupManager;
         private PlayerActionManager playerActionManager;
+        private BulletMovementManger bulletMovementManger;
 
         // Assets
         private AssetLoader assetLoader;
@@ -41,6 +43,7 @@ namespace MonoGameProj.Managers
             gameSetupManager = new GameSetup();
             playerList = gameSetupManager.SetUpPlayers();
             playerActionManager = new PlayerActionManager();
+            bulletMovementManger = new BulletMovementManger();
         }
 
         public void Update()
@@ -48,6 +51,11 @@ namespace MonoGameProj.Managers
             foreach(Player player in playerList.GetEntityList())
             {
                 playerActionManager.HandlePlayerActions(player, bulletList);
+            }
+
+            foreach(Bullet bullet in bulletList.GetEntityList())
+            {
+                bulletMovementManger.Update(bullet);
             }
 
             Console.WriteLine(bulletList.GetEntityList().Count);
