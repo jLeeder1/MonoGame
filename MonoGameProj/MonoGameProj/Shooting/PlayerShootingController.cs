@@ -11,8 +11,7 @@ namespace MonoGameProj.Shooting
         {
             if (actions.Contains(ActionConstants.SHOOT))
             {
-                var bullet = player.CurrentGun.Shoot(player.Position, player.Dimensions, player.CurrentDirection);
-
+                var bullet = player.CurrentGun.Shoot(player.Position, player.Dimensions, player.Direction);
                 bulletList.AddEntity(bullet);
             }
         }

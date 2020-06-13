@@ -34,7 +34,7 @@ namespace MonoGameProj.Entities.GameObjects.Guns
                 position = new Vector2(xPos, yPos);
             }
 
-            return bulletFactory.CreateBullet(bulletType, position);
+            return bulletFactory.CreateBullet(bulletType, position, direction);
         }
     }
 }

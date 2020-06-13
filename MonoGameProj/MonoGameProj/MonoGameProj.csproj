@@ -66,6 +66,7 @@
     <Compile Include="Game1.cs" />
     <Compile Include="Factories\GunFactory.cs" />
     <Compile Include="DeltaTime\DeltaTimeCalculator.cs" />
+    <Compile Include="Managers\BulletMovementManger.cs" />
     <Compile Include="Managers\GameManager.cs" />
     <Compile Include="Setup\GameSetup.cs" />
     <Compile Include="Input\PlayerActionResolver.cs" />

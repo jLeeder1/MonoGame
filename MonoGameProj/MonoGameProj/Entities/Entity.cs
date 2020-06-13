@@ -31,11 +31,11 @@ namespace MonoGameProj.Entities
 
         public EntityType EntityType { get; set; }
 
-        public ActionConstants CurrentDirection { get; set; }
+        public ActionConstants Direction { get; set; }
 
         public virtual Bullet Shoot() 
         {
-            return CurrentGun.Shoot(Position, Dimensions, CurrentDirection);
+            return CurrentGun.Shoot(Position, Dimensions, Direction);
         }
     }
 }

@@ -22,6 +22,7 @@ namespace MonoGameProj.Managers
             if (actions.Contains(ActionConstants.LEFT))
             {
                 newPosition.X = player.Position.X + PlayerConstants.PLAYER_SPEED * WorldConstants.NEGATIVE_NUMBER_MULTIPLIER;
+                player.Direction = ActionConstants.LEFT;
             }
 
             if (actions.Contains(ActionConstants.DOWN))
@@ -32,6 +33,7 @@ namespace MonoGameProj.Managers
             if (actions.Contains(ActionConstants.RIGHT))
             {
                 newPosition.X = player.Position.X + PlayerConstants.PLAYER_SPEED;
+                player.Direction = ActionConstants.RIGHT;
             }
 
             player.Position = newPosition;
