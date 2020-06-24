@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGameProj.Assets;
+using MonoGameProj.Entities;
 using MonoGameProj.Entities.Collections;
 using MonoGameProj.Entities.GameObjects;
 using MonoGameProj.Entities.Players;
@@ -11,13 +12,14 @@ namespace MonoGameProj.Managers
 {
     public class GameManager
     {
+        /*
         // Collections
-        private EntityList entityList;
-        private PlayerList playerList;
-        private BulletList bulletList;
+        private IGameCollection<Entity> entityList;
+        private IGameCollection<Player> playerList;
+        private IGameCollection<Bullet> bulletList;
 
         // Managers
-        private GameSetup gameSetupManager;
+        private IGameSetup gameSetupManager;
         private PlayerActionManager playerActionManager;
         private BulletMovementManger bulletMovementManger;
 
@@ -27,21 +29,27 @@ namespace MonoGameProj.Managers
         // Rendering
         private RenderingManager renderingManager;
 
-        public GameManager(ContentManager content)
+        public GameManager(
+            ContentManager content, 
+            IGameSetup gameSetupManager, 
+            IGameCollection<Entity> entityList,
+            IGameCollection<Player> playerList,
+            IGameCollection<Bullet> bulletList)
         {
             // Assets
             assetLoader = new AssetLoader(content);
 
             // Collections
-            entityList = new EntityList();
-            bulletList = new BulletList();
+            this.entityList = entityList;
+            this.playerList = playerList;
+            this.bulletList = bulletList;
 
             // Rendering
             renderingManager = new RenderingManager(assetLoader);
 
             // Game setup
-            gameSetupManager = new GameSetup();
-            playerList = gameSetupManager.SetUpPlayers();
+            this.gameSetupManager = gameSetupManager;
+            playerList.AddListRange(gameSetupManager.SetUpPlayers());
             playerActionManager = new PlayerActionManager();
             bulletMovementManger = new BulletMovementManger();
         }
@@ -66,5 +74,6 @@ namespace MonoGameProj.Managers
             renderingManager.DrawPlayers(playerList.GetEntityList(), spriteBatch);
             renderingManager.DrawBullets(bulletList.GetEntityList(), spriteBatch);
         }
+        */
     }
 }

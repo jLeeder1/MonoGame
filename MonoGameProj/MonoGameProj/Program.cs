@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Autofac;
+using System;
 
 namespace MonoGameProj
 {
@@ -14,8 +15,14 @@ namespace MonoGameProj
         [STAThread]
         static void Main()
         {
-            using (var game = new Game1())
-                game.Run();
+            var container = ContainerConfig.Configure();
+
+            using (var scope = container.BeginLifetimeScope())
+            {
+                var myGame = scope.Resolve<Game1>();
+                myGame.Run();
+            }
+                
         }
     }
 #endif

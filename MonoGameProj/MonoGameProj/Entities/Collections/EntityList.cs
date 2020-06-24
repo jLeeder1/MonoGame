@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MonoGameProj.Entities.Collections
 {
-    public class EntityList
+    public class EntityList : IGameCollection<Entity>
     {
         private List<Entity> entities;
 
@@ -28,6 +28,11 @@ namespace MonoGameProj.Entities.Collections
         public void AddListRange(List<Entity> listToConcat)
         {
             entities.AddRange(listToConcat);
+        }
+
+        public void AddEntity(Entity entity)
+        {
+            entities.Add(entity);
         }
     }
 }

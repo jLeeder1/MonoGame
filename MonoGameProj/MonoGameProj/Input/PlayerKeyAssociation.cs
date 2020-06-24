@@ -6,18 +6,18 @@ using System.Linq;
 
 namespace MonoGameProj.Managers
 {
-    public class PlayerKeyAssociation
+    public class PlayerKeyAssociation : IPlayerKeyAssociation
     {
         public void AssociateKeysWithPlayers(List<Player> players)
         {
             // Dirty way to get it to work for Now, need to change
-            for(int playersIndex = 0; playersIndex < players.Count; playersIndex++)
+            for (int playersIndex = 0; playersIndex < players.Count; playersIndex++)
             {
-                if(playersIndex == 0)
+                if (playersIndex == 0)
                 {
                     players.ElementAt(playersIndex).PlayerControlKeys = GetPlayerOneKeys();
                 }
-                else if(playersIndex == 1)
+                else if (playersIndex == 1)
                 {
                     players.ElementAt(playersIndex).PlayerControlKeys = GetPlayerTwoKeys();
                 }
