@@ -7,6 +7,9 @@ using System.Collections.Generic;
 
 namespace MonoGameProj.Managers
 {
+    /// <summary>
+    /// Class <c>PlayerSetup</c> sets up players by ssociating controls, generating guns nad giving them an inital position
+    /// </summary>
     public class PlayerSetup : IPlayerSetup
     {
         private IGunFactory gunFactory;

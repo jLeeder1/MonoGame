@@ -8,6 +8,9 @@ using System.Collections.Generic;
 
 namespace MonoGameProj.Managers
 {
+    /// <summary>
+    /// Class <c>RenderingManager</c> uses <c>AssetLoader</c> to draw entities from collections passed in
+    /// </summary>
     public class RenderingManager
     {
         private AssetLoader assetLoader;

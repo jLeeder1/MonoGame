@@ -3,6 +3,9 @@ using MonoGameProj.Constants;
 
 namespace MonoGameProj.Entities.GameObjects
 {
+    /// <summary>
+    /// Class <c>Bullet</c> is the base type of all Bullet projectiles in game. It stores properties shared by all bullet types
+    /// </summary>
     public class Bullet
     {
         public Bullet(Vector2 newPostion, ActionConstants direction)

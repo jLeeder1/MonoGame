@@ -7,6 +7,9 @@ using System.Collections.Generic;
 
 namespace MonoGameProj.Managers.PlayerMangers
 {
+    /// <summary>
+    /// Class <c>PlayerActionManager</c> controls player movment and shooting
+    /// </summary>
     public class PlayerActionManager : IPlayerActionManager
     {
         private readonly IPlayerActionResolver actionResolver;

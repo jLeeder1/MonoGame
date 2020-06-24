@@ -6,6 +6,9 @@ using System.Collections.Generic;
 
 namespace MonoGameProj.Shooting
 {
+    /// <summary>
+    /// Class <c>PlayerShootingController</c> spawns a bullet from the player in the direction they are facing and adds it to collection of bullets
+    /// </summary>
     public class PlayerShootingController : IPlayerShootingController
     {
         public void HandlePlayerShooting(List<ActionConstants> actions, Player player, IGameCollection<Bullet> bulletList)

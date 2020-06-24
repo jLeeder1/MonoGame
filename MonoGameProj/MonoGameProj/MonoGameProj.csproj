@@ -44,7 +44,7 @@
   <ItemGroup>
     <Compile Include="AssetLoader\AssetLoader.cs" />
     <Compile Include="Constants\AssetNames.cs" />
-    <Compile Include="ContainerConfig.cs" />
+    <Compile Include="DependencyInjection\ContainerConfig.cs" />
     <Compile Include="DeltaTime\IDeltaTimeCalculator.cs" />
     <Compile Include="Entities\Collections\BulletList.cs" />
     <Compile Include="Entities\Collections\EntityList.cs" />
@@ -66,14 +66,14 @@
     <Compile Include="Constants\Enums\EntityType.cs" />
     <Compile Include="Constants\Enums\GunType.cs" />
     <Compile Include="Factories\BulletFactory.cs" />
-    <Compile Include="Factories\Interfaces\IGunFactory.cs" />
+    <Compile Include="Factories\IBulletFactory.cs" />
+    <Compile Include="Factories\IGunFactory.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Factories\GunFactory.cs" />
     <Compile Include="DeltaTime\DeltaTimeCalculator.cs" />
     <Compile Include="Input\IPlayerActionResolver.cs" />
     <Compile Include="Input\IPlayerKeyAssociation.cs" />
     <Compile Include="Managers\BulletMovementManger.cs" />
-    <Compile Include="Managers\GameManager.cs" />
     <Compile Include="Managers\IBulletMovementManger.cs" />
     <Compile Include="Managers\IPlayerActionManager.cs" />
     <Compile Include="Movement\IPlayerMovementController.cs" />
@@ -125,7 +125,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entities\NPCs\" />
-    <Folder Include="Managers\Interfaces\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />

@@ -13,33 +13,34 @@ using System;
 
 namespace MonoGameProj
 {
+    /// <summary>
+    /// Class <c>Game1</c> main game loop that manages game running, updating and rendering for the duration of it's life
+    /// </summary>
     public class Game1 : Game
     {
-        // Game
-        private readonly GraphicsDeviceManager graphics;
-        private SpriteBatch spriteBatch;
-        private readonly IDeltaTimeCalculator deltaTimeCalculator;
-
-        // Textures
-        private Texture2D bulletSprite;
-
-        // Game manager
-        private readonly IGameSetup gameSetup;
+        // Assets
+        private readonly AssetLoader assetLoader;
 
         // Collections
         private readonly IGameCollection<Entity> entityList;
         private readonly IGameCollection<Player> playerList;
         private readonly IGameCollection<Bullet> bulletList;
 
-        // Managers
-        private IPlayerActionManager playerActionManager;
-        private IBulletMovementManger bulletMovementManger;
+        // Game
+        private readonly GraphicsDeviceManager graphics;
+        private SpriteBatch spriteBatch;
+        private readonly IDeltaTimeCalculator deltaTimeCalculator;
+        private readonly IGameSetup gameSetup;
 
-        // Assets
-        private readonly AssetLoader assetLoader;
+        // Managers
+        private readonly IPlayerActionManager playerActionManager;
+        private readonly IBulletMovementManger bulletMovementManger;
 
         // Rendering
         private readonly RenderingManager renderingManager;
+
+        // Textures
+        private Texture2D bulletSprite;
 
         public Game1(
             IGameSetup gameSetup, 
