@@ -1,11 +1,15 @@
 ﻿using Microsoft.Xna.Framework.Input;
 using MonoGameProj.Constants;
 using MonoGameProj.Entities.Players;
-using System;
 using System.Collections.Generic;
 
 namespace MonoGameProj.Managers.PlayerMangers
 {
+    /// <summary>
+    /// Class <c>PlayerActionResolver</c> Takes a player, resolves what keys are being pressed and comparess to the keys associated with the player. Returns a <c>List<ActionConstants></c> which are used to control player actions
+    /// <seealso>Class <c>PlayerKeyAssociation</c></seealso>
+    /// <seealso>Class <c>PlayerActionManager</c></seealso>"/>
+    /// </summary>
     public class PlayerActionResolver : IPlayerActionResolver
     {
         private KeyboardState keyboardState;

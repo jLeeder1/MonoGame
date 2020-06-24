@@ -4,6 +4,10 @@ using System.Collections.Generic;
 
 namespace MonoGameProj.Managers
 {
+    /// <summary>
+    /// Class <c>PlayerMovementController</c> updates player positions based on a <c>List<ActionConstants></c> passed in
+    /// <seealso>Class <c>PlayerActionResolver</c></seealso>
+    /// </summary>
     public class PlayerMovementController : IPlayerMovementController
     {
         public void UpdatePlayerPositions(Player player, List<ActionConstants> actions)

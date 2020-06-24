@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace MonoGameProj.Managers
 {
+    /// <summary>
+    /// Class <c>GameSetup</c> sets up inital game, including player list nad their associated controls
+    /// </summary>
     public class GameSetup : IGameSetup
     {
         private readonly IPlayerSetup playerSetup;

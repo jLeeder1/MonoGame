@@ -3,6 +3,9 @@ using MonoGameProj.Entities.GameObjects;
 
 namespace MonoGameProj.Managers
 {
+    /// <summary>
+    /// Class <c>BulletMovementManger</c> takes a <c>Bullet</c> and calulates a new position based on current position, speed and direction
+    /// </summary>
     public class BulletMovementManger : IBulletMovementManger
     {
         public void Update(Bullet bullet)

@@ -13,6 +13,9 @@ using System;
 
 namespace MonoGameProj
 {
+    /// <summary>
+    /// Class <c>Game1</c> main game loop that manages game running, updating and rendering for the duration of it's life
+    /// </summary>
     public class Game1 : Game
     {
         // Assets

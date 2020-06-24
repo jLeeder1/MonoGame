@@ -6,6 +6,11 @@ using System.Linq;
 
 namespace MonoGameProj.Managers
 {
+    /// <summary>
+    /// Class <c>PlayerKeyAssociation</c> used to associate keys with <c>ActionConstants</c> to player in form of <c>Dictionary<Keys, ActionConstants></c> to be used to determine actions
+    /// <seealso>Class <c>Player</c></seealso>
+    /// <seealso>Class <c>PlayerMovementManager</c></seealso>
+    /// </summary>
     public class PlayerKeyAssociation : IPlayerKeyAssociation
     {
         public void AssociateKeysWithPlayers(List<Player> players)
