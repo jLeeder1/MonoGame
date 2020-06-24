@@ -8,6 +8,8 @@ using MonoGameProj.Logic.Game;
 using MonoGameProj.Managers;
 using MonoGameProj.Managers.PlayerMangers;
 using MonoGameProj.Shooting;
+using System.Linq;
+using System.Reflection;
 
 namespace MonoGameProj
 {
@@ -17,10 +19,17 @@ namespace MonoGameProj
         {
             var builder = new ContainerBuilder();
 
+            // Better to do this the assemly way as seen in tutorial
+            // OR would it be possible to dynamically collect all assemlies in proj
+            // Then iteraate over each, matching each sype with the interface that matches it's prefixed with 'I'
+            // Found in asubfolder of that assembly with the name 'Interfaces'
+            //
+            // This way will do for now, need to keep messing around with it
+
             // Game1 instnace
-            //builder.RegisterInstance(game).As<Game1>();
             builder.RegisterType<Game1>().AsSelf();
 
+            // Delta time
             builder.RegisterType<DeltaTimeCalculator>().As<IDeltaTimeCalculator>();
 
             // Entitylist
@@ -28,7 +37,7 @@ namespace MonoGameProj
             builder.RegisterType<PlayerList>().As<IGameCollection<Player>>();
             builder.RegisterType<BulletList>().As<IGameCollection<Bullet>>();
 
-            //Setup
+            // Setup
             builder.RegisterType<PlayerKeyAssociation>().As<IPlayerKeyAssociation>();
             builder.RegisterType<GameSetup>().As<IGameSetup>();
             builder.RegisterType<PlayerSetup>().As<IPlayerSetup>();
@@ -42,18 +51,12 @@ namespace MonoGameProj
             // Managers
             builder.RegisterType<PlayerActionManager>().As<IPlayerActionManager>();
             builder.RegisterType<BulletMovementManger>().As<IBulletMovementManger>();
-
+            
             // Movement
             builder.RegisterType<PlayerMovementController>().As<IPlayerMovementController>();
 
             // Shooting
             builder.RegisterType<PlayerShootingController>().As<IPlayerShootingController>();
-
-            /*
-            builder.RegisterAssemblyTypes(Assembly.Load(nameof(MonoGameProj)))
-                .Where(t => t.Namespace.Contains("Factories/Interfaces"))
-                .As(t => t.GetInterfaces().FirstOrDefault(i => i.Name == "I" + t.Name));
-            */
 
             return builder.Build();
         }

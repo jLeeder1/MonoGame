@@ -16,30 +16,30 @@ namespace MonoGameProj
     public class Game1 : Game
     {
         // Game
-        private GraphicsDeviceManager graphics;
+        private readonly GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
-        private IDeltaTimeCalculator deltaTimeCalculator;
+        private readonly IDeltaTimeCalculator deltaTimeCalculator;
 
         // Textures
         private Texture2D bulletSprite;
 
         // Game manager
-        private IGameSetup gameSetup;
+        private readonly IGameSetup gameSetup;
 
         // Collections
-        private IGameCollection<Entity> entityList;
-        private IGameCollection<Player> playerList;
-        private IGameCollection<Bullet> bulletList;
+        private readonly IGameCollection<Entity> entityList;
+        private readonly IGameCollection<Player> playerList;
+        private readonly IGameCollection<Bullet> bulletList;
 
         // Managers
         private IPlayerActionManager playerActionManager;
         private IBulletMovementManger bulletMovementManger;
 
         // Assets
-        private AssetLoader assetLoader;
+        private readonly AssetLoader assetLoader;
 
         // Rendering
-        private RenderingManager renderingManager;
+        private readonly RenderingManager renderingManager;
 
         public Game1(
             IGameSetup gameSetup, 
