@@ -1,8 +1,15 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using MonoGameProj.Assets;
+using MonoGameProj.Entities;
+using MonoGameProj.Entities.Collections;
+using MonoGameProj.Entities.GameObjects;
+using MonoGameProj.Entities.Players;
 using MonoGameProj.Logic.Game;
 using MonoGameProj.Managers;
+using MonoGameProj.Managers.PlayerMangers;
+using System;
 
 namespace MonoGameProj
 {
@@ -11,21 +18,58 @@ namespace MonoGameProj
         // Game
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
-        private DeltaTimeCalculator deltaTimeCalculator;
+        private IDeltaTimeCalculator deltaTimeCalculator;
 
         // Textures
         private Texture2D bulletSprite;
 
         // Game manager
-        private GameManager gameManager;
         private IGameSetup gameSetup;
 
-        public Game1(IGameSetup gameSetup)
+        // Collections
+        private IGameCollection<Entity> entityList;
+        private IGameCollection<Player> playerList;
+        private IGameCollection<Bullet> bulletList;
+
+        // Managers
+        private IPlayerActionManager playerActionManager;
+        private IBulletMovementManger bulletMovementManger;
+
+        // Assets
+        private AssetLoader assetLoader;
+
+        // Rendering
+        private RenderingManager renderingManager;
+
+        public Game1(
+            IGameSetup gameSetup, 
+            IDeltaTimeCalculator deltaTimeCalculator,
+            IGameCollection<Entity> entityList,
+            IGameCollection<Player> playerList,
+            IGameCollection<Bullet> bulletList,
+            IPlayerActionManager playerActionManager,
+            IBulletMovementManger bulletMovementManger)
         {
             this.gameSetup = gameSetup;
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            deltaTimeCalculator = new DeltaTimeCalculator();
+            this.deltaTimeCalculator = deltaTimeCalculator;
+
+            // Assets
+            assetLoader = new AssetLoader(Content);
+
+            // Collections
+            this.entityList = entityList;
+            this.playerList = playerList;
+            this.bulletList = bulletList;
+
+            // Rendering
+            renderingManager = new RenderingManager(assetLoader);
+
+            // Game setup
+            playerList.AddListRange(this.gameSetup.SetUpPlayers());
+            this.playerActionManager = playerActionManager;
+            this.bulletMovementManger = bulletMovementManger;
         }
 
         /// <summary>
@@ -39,8 +83,6 @@ namespace MonoGameProj
             // TODO: Add your initialization logic here
 
             base.Initialize();
-
-            gameManager = new GameManager(Content, gameSetup);
         }
 
         /// <summary>
@@ -80,7 +122,17 @@ namespace MonoGameProj
             deltaTimeCalculator.UpdateDeltaTime(gameTime);
             var deltaTime = deltaTimeCalculator.DeltaTime;
 
-            gameManager.Update();
+            foreach (Player player in playerList.GetEntityList())
+            {
+                playerActionManager.HandlePlayerActions(player, bulletList);
+            }
+
+            foreach (Bullet bullet in bulletList.GetEntityList())
+            {
+                bulletMovementManger.Update(bullet);
+            }
+
+            Console.WriteLine(playerList.GetEntityList().Count);
 
             base.Update(gameTime);
         }
@@ -96,9 +148,8 @@ namespace MonoGameProj
             // TODO: Add your drawing code here
             spriteBatch.Begin();
 
-            gameManager.Draw(spriteBatch);
-
-            // spriteBatch.Draw(bulletSprite, new Vector2(100, 100), Color.White);
+            renderingManager.DrawPlayers(playerList.GetEntityList(), spriteBatch);
+            renderingManager.DrawBullets(bulletList.GetEntityList(), spriteBatch);
 
             spriteBatch.End();
 

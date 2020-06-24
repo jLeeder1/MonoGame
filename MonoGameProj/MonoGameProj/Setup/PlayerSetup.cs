@@ -7,13 +7,13 @@ using System.Collections.Generic;
 
 namespace MonoGameProj.Managers
 {
-    public class PlayerSetup
+    public class PlayerSetup : IPlayerSetup
     {
-        private GunFactory gunFactory;
+        private IGunFactory gunFactory;
 
-        public PlayerSetup()
+        public PlayerSetup(IGunFactory gunFactory)
         {
-            gunFactory = new GunFactory();
+            this.gunFactory = gunFactory;
         }
 
         public List<Player> SetupPlayers(int numOfPlayers)
@@ -21,7 +21,7 @@ namespace MonoGameProj.Managers
             List<Player> players = new List<Player>();
 
             // Set up each players gun, position and texture
-            for(int index = 0; index < numOfPlayers; index++)
+            for (int index = 0; index < numOfPlayers; index++)
             {
                 Gun startingGun = gunFactory.RetrieveGun(Enums.GunType.SMALL_HANDGUN);
 

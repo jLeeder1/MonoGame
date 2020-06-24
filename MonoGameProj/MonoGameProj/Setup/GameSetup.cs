@@ -1,29 +1,25 @@
-﻿using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.Graphics;
-using MonoGameProj.Assets;
-using MonoGameProj.Entities.Collections;
-using MonoGameProj.Entities.Players;
+﻿using MonoGameProj.Entities.Players;
 using System.Collections.Generic;
 
 namespace MonoGameProj.Managers
 {
     public class GameSetup : IGameSetup
     {
-        private readonly PlayerSetup playerSetup;
-        private IPlayerKeyAssociation playerKeyAssociationManager;
+        private readonly IPlayerSetup playerSetup;
+        private readonly IPlayerKeyAssociation playerKeyAssociationManager;
 
-        public GameSetup(IPlayerKeyAssociation playerKeyAssociation)
+        public GameSetup(IPlayerSetup playerSetup, IPlayerKeyAssociation playerKeyAssociation)
         {
             playerKeyAssociationManager = playerKeyAssociation;
-            playerSetup = new PlayerSetup();
+            this.playerSetup = playerSetup;
         }
 
-        public PlayerList SetUpPlayers()
+        public List<Player> SetUpPlayers()
         {
             var players = playerSetup.SetupPlayers(1);
             SetUpPlayerControls(players);
 
-            return new PlayerList(players);
+            return players;
         }
 
         private void SetUpPlayerControls(List<Player> players)

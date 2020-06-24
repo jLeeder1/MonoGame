@@ -2,7 +2,7 @@
 
 namespace MonoGameProj.Logic.Game
 {
-    public class DeltaTimeCalculator
+    public class DeltaTimeCalculator : IDeltaTimeCalculator
     {
         public float DeltaTime { get; set; }
 

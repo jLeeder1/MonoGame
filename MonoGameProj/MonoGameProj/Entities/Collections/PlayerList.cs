@@ -12,11 +12,6 @@ namespace MonoGameProj.Entities.Collections
             players = new List<Player>();
         }
 
-        public PlayerList(List<Player> players)
-        {
-            this.players = players;
-        }
-
         public List<Player> GetEntityList()
         {
             return players;
@@ -32,9 +27,9 @@ namespace MonoGameProj.Entities.Collections
             players.Remove(player);
         }
 
-        public void AddListRange(List<Player> entities)
+        public void AddListRange(List<Player> additinalPlayers)
         {
-            players.AddRange(entities);
+            players.AddRange(additinalPlayers);
         }
     }
 }

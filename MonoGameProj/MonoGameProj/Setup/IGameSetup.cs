@@ -1,9 +1,11 @@
 ﻿using MonoGameProj.Entities.Collections;
+using MonoGameProj.Entities.Players;
+using System.Collections.Generic;
 
 namespace MonoGameProj.Managers
 {
     public interface IGameSetup
     {
-        PlayerList SetUpPlayers();
+        List<Player> SetUpPlayers();
     }
 }

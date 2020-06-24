@@ -6,9 +6,9 @@ using System.Collections.Generic;
 
 namespace MonoGameProj.Managers.PlayerMangers
 {
-    public class PlayerActionResolver
+    public class PlayerActionResolver : IPlayerActionResolver
     {
-       private KeyboardState keyboardState;
+        private KeyboardState keyboardState;
 
         public PlayerActionResolver()
         {
@@ -23,7 +23,7 @@ namespace MonoGameProj.Managers.PlayerMangers
 
             foreach (KeyValuePair<Keys, ActionConstants> entry in player.PlayerControlKeys)
             {
-                if(KeyAssociatedWithPlayerIsPressed(keysCurrentlyPressed, entry.Key))
+                if (KeyAssociatedWithPlayerIsPressed(keysCurrentlyPressed, entry.Key))
                 {
                     actions.Add(entry.Value);
                 }
@@ -34,9 +34,9 @@ namespace MonoGameProj.Managers.PlayerMangers
 
         private bool KeyAssociatedWithPlayerIsPressed(Keys[] keys, Keys playerkey)
         {
-            for(int index = 0; index < keys.Length; index++)
+            for (int index = 0; index < keys.Length; index++)
             {
-                if(keys[index] == playerkey)
+                if (keys[index] == playerkey)
                 {
                     return true;
                 }

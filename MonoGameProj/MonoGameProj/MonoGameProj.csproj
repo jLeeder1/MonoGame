@@ -45,6 +45,7 @@
     <Compile Include="AssetLoader\AssetLoader.cs" />
     <Compile Include="Constants\AssetNames.cs" />
     <Compile Include="ContainerConfig.cs" />
+    <Compile Include="DeltaTime\IDeltaTimeCalculator.cs" />
     <Compile Include="Entities\Collections\BulletList.cs" />
     <Compile Include="Entities\Collections\EntityList.cs" />
     <Compile Include="Entities\Collections\IGameCollection.cs" />
@@ -69,19 +70,25 @@
     <Compile Include="Game1.cs" />
     <Compile Include="Factories\GunFactory.cs" />
     <Compile Include="DeltaTime\DeltaTimeCalculator.cs" />
+    <Compile Include="Input\IPlayerActionResolver.cs" />
     <Compile Include="Input\IPlayerKeyAssociation.cs" />
     <Compile Include="Managers\BulletMovementManger.cs" />
     <Compile Include="Managers\GameManager.cs" />
+    <Compile Include="Managers\IBulletMovementManger.cs" />
+    <Compile Include="Managers\IPlayerActionManager.cs" />
+    <Compile Include="Movement\IPlayerMovementController.cs" />
     <Compile Include="Setup\GameSetup.cs" />
     <Compile Include="Input\PlayerActionResolver.cs" />
     <Compile Include="Managers\PlayerActionManager.cs" />
     <Compile Include="Input\PlayerKeyAssociation.cs" />
     <Compile Include="Movement\PlayerMovementController.cs" />
     <Compile Include="Setup\IGameSetup.cs" />
+    <Compile Include="Setup\IPlayerSetup.cs" />
     <Compile Include="Setup\PlayerSetup.cs" />
     <Compile Include="Managers\RenderingManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Shooting\IPlayerShootingController.cs" />
     <Compile Include="Shooting\PlayerShootingController.cs" />
   </ItemGroup>
   <ItemGroup>

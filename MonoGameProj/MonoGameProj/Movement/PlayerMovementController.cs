@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace MonoGameProj.Managers
 {
-    public class PlayerMovementController
+    public class PlayerMovementController : IPlayerMovementController
     {
         public void UpdatePlayerPositions(Player player, List<ActionConstants> actions)
         {
