@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGameProj.Logic.Game;
 using MonoGameProj.Managers;
-using System;
 
 namespace MonoGameProj
 {
@@ -19,9 +18,11 @@ namespace MonoGameProj
 
         // Game manager
         private GameManager gameManager;
+        private IGameSetup gameSetup;
 
-        public Game1()
+        public Game1(IGameSetup gameSetup)
         {
+            this.gameSetup = gameSetup;
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             deltaTimeCalculator = new DeltaTimeCalculator();
@@ -39,7 +40,7 @@ namespace MonoGameProj
 
             base.Initialize();
 
-            gameManager = new GameManager(Content);
+            gameManager = new GameManager(Content, gameSetup);
         }
 
         /// <summary>

@@ -7,14 +7,14 @@ using System.Collections.Generic;
 
 namespace MonoGameProj.Managers
 {
-    public class GameSetup
+    public class GameSetup : IGameSetup
     {
         private readonly PlayerSetup playerSetup;
-        private PlayerKeyAssociation playerKeyAssociationManager;
+        private IPlayerKeyAssociation playerKeyAssociationManager;
 
-        public GameSetup()
+        public GameSetup(IPlayerKeyAssociation playerKeyAssociation)
         {
-            playerKeyAssociationManager = new PlayerKeyAssociation();
+            playerKeyAssociationManager = playerKeyAssociation;
             playerSetup = new PlayerSetup();
         }
 

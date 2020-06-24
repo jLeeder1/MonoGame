@@ -3,7 +3,7 @@ using MonoGameProj.Enums;
 
 namespace MonoGameProj.Helpers
 {
-    public class GunFactory
+    public class GunFactory : IGunFactory
     {
         public Gun RetrieveGun(GunType gunType)
         {

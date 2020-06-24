@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -13,7 +13,8 @@
     <AssemblyName>MonoGameProj</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MonoGamePlatform>Windows</MonoGamePlatform>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -41,8 +42,9 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\AssetLoader.cs" />
+    <Compile Include="AssetLoader\AssetLoader.cs" />
     <Compile Include="Constants\AssetNames.cs" />
+    <Compile Include="ContainerConfig.cs" />
     <Compile Include="Entities\Collections\BulletList.cs" />
     <Compile Include="Entities\Collections\EntityList.cs" />
     <Compile Include="Entities\Collections\IGameCollection.cs" />
@@ -51,21 +53,23 @@
     <Compile Include="Entities\GameObjects\EntityDimensions.cs" />
     <Compile Include="Entities\GameObjects\Guns\Gun.cs" />
     <Compile Include="Entities\GameObjects\Guns\SmallHandgun.cs" />
-    <Compile Include="Enums\BulletType.cs" />
-    <Compile Include="Enums\ContentEnum.cs" />
-    <Compile Include="Enums\ActionConstants.cs" />
+    <Compile Include="Constants\Enums\BulletType.cs" />
+    <Compile Include="Constants\Enums\ContentEnum.cs" />
+    <Compile Include="Constants\Enums\ActionConstants.cs" />
     <Compile Include="Constants\EntityConstants.cs" />
     <Compile Include="Constants\PlayerConstants.cs" />
     <Compile Include="Constants\WorldConstants.cs" />
     <Compile Include="Entities\GameObjects\Bullets\Bullet.cs" />
     <Compile Include="Entities\GameObjects\Bullets\SmallHandgunBullet.cs" />
     <Compile Include="Entities\Players\Player.cs" />
-    <Compile Include="Enums\EntityType.cs" />
-    <Compile Include="Enums\GunType.cs" />
+    <Compile Include="Constants\Enums\EntityType.cs" />
+    <Compile Include="Constants\Enums\GunType.cs" />
     <Compile Include="Factories\BulletFactory.cs" />
+    <Compile Include="Factories\Interfaces\IGunFactory.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Factories\GunFactory.cs" />
     <Compile Include="DeltaTime\DeltaTimeCalculator.cs" />
+    <Compile Include="Input\IPlayerKeyAssociation.cs" />
     <Compile Include="Managers\BulletMovementManger.cs" />
     <Compile Include="Managers\GameManager.cs" />
     <Compile Include="Setup\GameSetup.cs" />
@@ -73,6 +77,7 @@
     <Compile Include="Managers\PlayerActionManager.cs" />
     <Compile Include="Input\PlayerKeyAssociation.cs" />
     <Compile Include="Movement\PlayerMovementController.cs" />
+    <Compile Include="Setup\IGameSetup.cs" />
     <Compile Include="Setup\PlayerSetup.cs" />
     <Compile Include="Managers\RenderingManager.cs" />
     <Compile Include="Program.cs" />
@@ -80,10 +85,23 @@
     <Compile Include="Shooting\PlayerShootingController.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=5.2.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.5.2.0\lib\net461\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
     <Reference Include="MonoGame.Framework">
       <HintPath>$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\Windows\MonoGame.Framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
   </ItemGroup>
@@ -92,9 +110,11 @@
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
+    <None Include="app.config" />
     <None Include="app.manifest" />
     <None Include="Content\bullet.xnb" />
     <None Include="Content\target.xnb" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entities\NPCs\" />

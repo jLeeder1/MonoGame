@@ -17,7 +17,7 @@ namespace MonoGameProj.Managers
         private BulletList bulletList;
 
         // Managers
-        private GameSetup gameSetupManager;
+        private IGameSetup gameSetupManager;
         private PlayerActionManager playerActionManager;
         private BulletMovementManger bulletMovementManger;
 
@@ -27,7 +27,7 @@ namespace MonoGameProj.Managers
         // Rendering
         private RenderingManager renderingManager;
 
-        public GameManager(ContentManager content)
+        public GameManager(ContentManager content, IGameSetup gameSetupManager)
         {
             // Assets
             assetLoader = new AssetLoader(content);
@@ -40,7 +40,7 @@ namespace MonoGameProj.Managers
             renderingManager = new RenderingManager(assetLoader);
 
             // Game setup
-            gameSetupManager = new GameSetup();
+            this.gameSetupManager = gameSetupManager;
             playerList = gameSetupManager.SetUpPlayers();
             playerActionManager = new PlayerActionManager();
             bulletMovementManger = new BulletMovementManger();
