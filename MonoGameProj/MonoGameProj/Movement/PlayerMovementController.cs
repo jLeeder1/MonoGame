@@ -1,9 +1,6 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Input;
-using MonoGameProj.Constants;
+﻿using MonoGameProj.Constants;
 using MonoGameProj.Entities.Players;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace MonoGameProj.Managers
 {

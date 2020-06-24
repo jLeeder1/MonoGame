@@ -8,8 +8,6 @@ using MonoGameProj.Logic.Game;
 using MonoGameProj.Managers;
 using MonoGameProj.Managers.PlayerMangers;
 using MonoGameProj.Shooting;
-using System.Linq;
-using System.Reflection;
 
 namespace MonoGameProj
 {

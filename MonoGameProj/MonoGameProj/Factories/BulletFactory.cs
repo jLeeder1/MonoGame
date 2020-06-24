@@ -4,7 +4,7 @@ using MonoGameProj.Entities.GameObjects;
 
 namespace MonoGameProj.Factories
 {
-    public class BulletFactory
+    public class BulletFactory : IBulletFactory
     {
         public Bullet CreateBullet(BulletType bulletType, Vector2 position, ActionConstants direction)
         {

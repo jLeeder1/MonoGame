@@ -10,7 +10,7 @@ namespace MonoGameProj.Managers
     {
         public void AssociateKeysWithPlayers(List<Player> players)
         {
-            // Dirty way to get it to work for Now, need to change
+            // Dirty way to get it to work for now, need to change
             for (int playersIndex = 0; playersIndex < players.Count; playersIndex++)
             {
                 if (playersIndex == 0)
