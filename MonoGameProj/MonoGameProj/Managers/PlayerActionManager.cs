@@ -26,11 +26,11 @@ namespace MonoGameProj.Managers.PlayerMangers
             this.playerShootingController = playerShootingController;
         }
 
-        public void HandlePlayerActions(Player player, IGameCollection<Bullet> bulletList)
+        public void HandlePlayerActions(Player player, IGameCollection<Bullet> bulletList, float deltaTime)
         {
             var actions = this.GetPlayerActions(player);
 
-            this.playerShootingController.HandlePlayerShooting(actions, player, bulletList);
+            this.playerShootingController.HandlePlayerShooting(actions, player, bulletList, deltaTime);
 
             this.playerMovementController.UpdatePlayerPositions(player, actions);
         }

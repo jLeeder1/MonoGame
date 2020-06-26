@@ -8,6 +8,6 @@ namespace MonoGameProj.Shooting
 {
     public interface IPlayerShootingController
     {
-        void HandlePlayerShooting(List<ActionConstants> actions, Player player, IGameCollection<Bullet> bulletList);
+        void HandlePlayerShooting(List<ActionConstants> actions, Player player, IGameCollection<Bullet> bulletList, float deltaTime);
     }
 }

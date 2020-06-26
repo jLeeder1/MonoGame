@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MonoGameProj.Constants
+﻿namespace MonoGameProj.Constants
 {
     public static class EntityConstants
     {
         public static class SmallHandgunConstants
         {
             public static int Small_Handgun_Bullet_Weight = 5;
-            public static int Small_Handgun_Base_Speed = 5;
+            public static int Small_Handgun_Base_Speed = 12;
             public static string Small_Handgun_Texture_Name = "bullet";
+            public static float Small_Handgun_Rate_Of_Fire = 0.35f; // Values closer to 0 mean greater rate of fire
         }
 
         public static class DimensionConstants

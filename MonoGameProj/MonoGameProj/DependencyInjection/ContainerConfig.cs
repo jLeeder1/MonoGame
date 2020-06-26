@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using Microsoft.Xna.Framework;
 using MonoGameProj.Entities;
 using MonoGameProj.Entities.Collections;
 using MonoGameProj.Entities.GameObjects;
@@ -26,6 +27,9 @@ namespace MonoGameProj
 
             // Game1 instnace
             builder.RegisterType<Game1>().AsSelf();
+
+            // GameTime
+            builder.RegisterType<GameTime>().AsSelf();
 
             // Delta time
             builder.RegisterType<DeltaTimeCalculator>().As<IDeltaTimeCalculator>();
@@ -55,6 +59,9 @@ namespace MonoGameProj
 
             // Shooting
             builder.RegisterType<PlayerShootingController>().As<IPlayerShootingController>();
+
+            // Delta time
+            builder.RegisterType<DeltaTimeCalculator>().As<IDeltaTimeCalculator>();
 
             return builder.Build();
         }

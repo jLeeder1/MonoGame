@@ -6,10 +6,11 @@ namespace MonoGameProj.Entities.GameObjects.Guns
 {
     public class Gun
     {
-        private BulletFactory bulletFactory;
+        private readonly BulletFactory bulletFactory;
         protected BulletType bulletType;
         protected EntityDimensions dimensions;
-
+        protected float rateOfFire;
+        
         public Gun() 
         { 
             this.bulletFactory = new BulletFactory();
@@ -32,6 +33,19 @@ namespace MonoGameProj.Entities.GameObjects.Guns
             }
 
             return bulletFactory.CreateBullet(bulletType, position, direction);
+        }
+
+        public bool GunCanShoot(float deltaTime)
+        {
+            rateOfFire -= deltaTime;
+
+            if(rateOfFire <= 0)
+            {
+                rateOfFire = EntityConstants.SmallHandgunConstants.Small_Handgun_Rate_Of_Fire;
+                return true;
+            }
+
+            return false;
         }
     }
 }

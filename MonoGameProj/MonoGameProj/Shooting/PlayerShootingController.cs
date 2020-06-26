@@ -11,8 +11,13 @@ namespace MonoGameProj.Shooting
     /// </summary>
     public class PlayerShootingController : IPlayerShootingController
     {
-        public void HandlePlayerShooting(List<ActionConstants> actions, Player player, IGameCollection<Bullet> bulletList)
+        public void HandlePlayerShooting(List<ActionConstants> actions, Player player, IGameCollection<Bullet> bulletList, float deltaTime)
         {
+            if (!player.CurrentGun.GunCanShoot(deltaTime))
+            {
+                return;
+            }
+
             if (actions.Contains(ActionConstants.SHOOT))
             {
                 var bullet = player.CurrentGun.Shoot(player.Position, player.Dimensions, player.Direction);
