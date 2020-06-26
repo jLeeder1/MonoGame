@@ -6,6 +6,6 @@ namespace MonoGameProj.Managers.PlayerMangers
 {
     public interface IPlayerActionManager
     {
-        void HandlePlayerActions(Player player, IGameCollection<Bullet> bulletList);
+        void HandlePlayerActions(Player player, IGameCollection<Bullet> bulletList, float deltaTime);
     }
 }

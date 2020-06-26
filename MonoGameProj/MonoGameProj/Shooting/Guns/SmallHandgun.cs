@@ -1,9 +1,5 @@
 ﻿using MonoGameProj.Constants;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MonoGameProj.Logic.Game;
 
 namespace MonoGameProj.Entities.GameObjects.Guns
 {
@@ -11,6 +7,7 @@ namespace MonoGameProj.Entities.GameObjects.Guns
     {
         public SmallHandgun()
         {
+            rateOfFire = EntityConstants.SmallHandgunConstants.Small_Handgun_Rate_Of_Fire;
             bulletType = BulletType.SMALL_HANDGUN;
         }
     }

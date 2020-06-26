@@ -13,5 +13,11 @@ namespace MonoGameProj.Logic.Game
         {
             this.DeltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
         }
+
+        public float GetDeltaTime(GameTime gameTime)
+        {
+            UpdateDeltaTime(gameTime);
+            return DeltaTime;
+        }
     }
 }

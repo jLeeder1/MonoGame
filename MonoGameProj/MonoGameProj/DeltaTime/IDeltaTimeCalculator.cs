@@ -7,5 +7,7 @@ namespace MonoGameProj.Logic.Game
         float DeltaTime { get; set; }
 
         void UpdateDeltaTime(GameTime gameTime);
+
+        float GetDeltaTime(GameTime gameTime);
     }
 }

@@ -39,9 +39,6 @@ namespace MonoGameProj
         // Rendering
         private readonly RenderingManager renderingManager;
 
-        // Textures
-        private Texture2D bulletSprite;
-
         public Game1(
             IGameSetup gameSetup, 
             IDeltaTimeCalculator deltaTimeCalculator,
@@ -96,7 +93,6 @@ namespace MonoGameProj
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            bulletSprite = Content.Load<Texture2D>("bullet");
         }
 
         /// <summary>
@@ -119,13 +115,12 @@ namespace MonoGameProj
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
             deltaTimeCalculator.UpdateDeltaTime(gameTime);
             var deltaTime = deltaTimeCalculator.DeltaTime;
 
             foreach (Player player in playerList.GetEntityList())
             {
-                playerActionManager.HandlePlayerActions(player, bulletList);
+                playerActionManager.HandlePlayerActions(player, bulletList, deltaTime);
             }
 
             foreach (Bullet bullet in bulletList.GetEntityList())

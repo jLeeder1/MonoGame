@@ -13,6 +13,7 @@ namespace MonoGameProj.Constants
             public static int Small_Handgun_Bullet_Weight = 5;
             public static int Small_Handgun_Base_Speed = 5;
             public static string Small_Handgun_Texture_Name = "bullet";
+            public static float Small_Handgun_Rate_Of_Fire = 100.0f;
         }
 
         public static class DimensionConstants
