@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using MonoGameProj.Constants;
 using MonoGameProj.Factories;
-using MonoGameProj.Logic.Game;
 
 namespace MonoGameProj.Entities.GameObjects.Guns
 {
@@ -17,7 +16,7 @@ namespace MonoGameProj.Entities.GameObjects.Guns
             this.bulletFactory = new BulletFactory();
         }
 
-        public Bullet Shoot(Vector2 entityCurrentPos, EntityDimensions dimensions, ActionConstants direction, float deltaTime)
+        public Bullet Shoot(Vector2 entityCurrentPos, EntityDimensions dimensions, ActionConstants direction)
         {
             Vector2 position;
             var yPos = entityCurrentPos.Y + (dimensions.Height / 2);
