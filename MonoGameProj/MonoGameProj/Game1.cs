@@ -68,6 +68,10 @@ namespace MonoGameProj
             playerList.AddListRange(this.gameSetup.SetUpPlayers());
             this.playerActionManager = playerActionManager;
             this.bulletMovementManger = bulletMovementManger;
+
+            // Window size
+            graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+            graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
         }
 
         /// <summary>
@@ -79,6 +83,10 @@ namespace MonoGameProj
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+
+            // Window size
+            graphics.IsFullScreen = true;
+            graphics.ApplyChanges();
 
             base.Initialize();
         }
