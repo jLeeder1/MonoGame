@@ -85,7 +85,7 @@ namespace MonoGameProj
             // TODO: Add your initialization logic here
 
             // Window size
-            graphics.IsFullScreen = true;
+            //graphics.IsFullScreen = true;
             graphics.ApplyChanges();
 
             base.Initialize();
@@ -150,8 +150,8 @@ namespace MonoGameProj
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            spriteBatch.Begin();
-
+            spriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null,
+            Matrix.CreateScale(5.0f));
             renderingManager.DrawPlayers(playerList.GetEntityList(), spriteBatch);
             renderingManager.DrawBullets(bulletList.GetEntityList(), spriteBatch);
 

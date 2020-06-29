@@ -5,7 +5,7 @@
         public static class SmallHandgunConstants
         {
             public static int Small_Handgun_Bullet_Weight = 5;
-            public static int Small_Handgun_Base_Speed = 12;
+            public static int Small_Handgun_Base_Speed = 1; // was 12
             public static string Small_Handgun_Texture_Name = "bullet";
             public static float Small_Handgun_Rate_Of_Fire = 0.35f; // Values closer to 0 mean greater rate of fire
         }
@@ -18,8 +18,8 @@
 
         public static class BulletDimensionConstants
         {
-            public static float Handgun_Width_Value = 5.0F;
-            public static float Handgun_Height_Value = 2.0F;
+            public static float Handgun_Bullet_Width_Value = 5.0F;
+            public static float Handgun_Bullet_Height_Value = 2.0F;
         }
     }
 }
