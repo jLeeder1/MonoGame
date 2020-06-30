@@ -85,6 +85,7 @@ namespace MonoGameProj
             // TODO: Add your initialization logic here
 
             // Window size
+            // uncomment the line below or full screen, leave commented for debug
             //graphics.IsFullScreen = true;
             graphics.ApplyChanges();
 
