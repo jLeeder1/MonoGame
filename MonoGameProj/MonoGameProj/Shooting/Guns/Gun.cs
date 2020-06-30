@@ -2,6 +2,9 @@
 using MonoGameProj.Constants;
 using MonoGameProj.Factories;
 
+/// <summary>
+/// Class <c>Gun</c> models the shared properties of a gun and provides logic to shoot bullets
+/// </summary>
 namespace MonoGameProj.Entities.GameObjects.Guns
 {
     public class Gun
@@ -19,7 +22,7 @@ namespace MonoGameProj.Entities.GameObjects.Guns
         public Bullet Shoot(Vector2 entityCurrentPos, EntityDimensions dimensions, ActionConstants direction)
         {
             Vector2 position;
-            var yPos = entityCurrentPos.Y + (dimensions.Height / 2);
+            var yPos = entityCurrentPos.Y + (dimensions.Height / 2) + 50;
 
             if (direction == ActionConstants.RIGHT)
             {
@@ -28,7 +31,7 @@ namespace MonoGameProj.Entities.GameObjects.Guns
             }
             else
             {
-                var xPos = entityCurrentPos.X;
+                var xPos = entityCurrentPos.X - dimensions.Width;
                 position = new Vector2(xPos, yPos);
             }
 

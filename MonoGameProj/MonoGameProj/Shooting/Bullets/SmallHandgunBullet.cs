@@ -14,8 +14,8 @@ namespace MonoGameProj.Entities.GameObjects
             BaseSpeed = EntityConstants.SmallHandgunConstants.Small_Handgun_Base_Speed;
             Dimensions = new EntityDimensions
             {
-                Width = EntityConstants.BulletDimensionConstants.Handgun_Width_Value,
-                Height = EntityConstants.BulletDimensionConstants.Handgun_Height_Value
+                Width = EntityConstants.BulletDimensionConstants.Handgun_Bullet_Width_Value,
+                Height = EntityConstants.BulletDimensionConstants.Handgun_Bullet_Height_Value
             };
 
             Sprite = EntityConstants.SmallHandgunConstants.Small_Handgun_Texture_Name;

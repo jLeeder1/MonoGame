@@ -68,6 +68,10 @@ namespace MonoGameProj
             playerList.AddListRange(this.gameSetup.SetUpPlayers());
             this.playerActionManager = playerActionManager;
             this.bulletMovementManger = bulletMovementManger;
+
+            // Window size
+            graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+            graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
         }
 
         /// <summary>
@@ -79,6 +83,11 @@ namespace MonoGameProj
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+
+            // Window size
+            // uncomment the line below or full screen, leave commented for debug
+            //graphics.IsFullScreen = true;
+            graphics.ApplyChanges();
 
             base.Initialize();
         }
@@ -142,8 +151,8 @@ namespace MonoGameProj
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            spriteBatch.Begin();
-
+            spriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null,
+            Matrix.CreateScale(5.0f));
             renderingManager.DrawPlayers(playerList.GetEntityList(), spriteBatch);
             renderingManager.DrawBullets(bulletList.GetEntityList(), spriteBatch);
 
