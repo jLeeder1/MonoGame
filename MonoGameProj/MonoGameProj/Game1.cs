@@ -10,6 +10,10 @@ using MonoGameProj.Logic.Game;
 using MonoGameProj.Managers;
 using MonoGameProj.Managers.PlayerMangers;
 using System;
+using MonoGame.Extended.Tiled;
+using MonoGame.Extended.Tiled.Renderers;
+using MonoGame.Extended;
+using MonoGame.Extended.ViewportAdapters;
 
 namespace MonoGameProj
 {
@@ -38,6 +42,10 @@ namespace MonoGameProj
 
         // Rendering
         private readonly RenderingManager renderingManager;
+
+        private TiledMap map;
+        private TiledMapRenderer mapRenderer;
+        private OrthographicCamera camera;
 
         public Game1(
             IGameSetup gameSetup, 
@@ -80,6 +88,12 @@ namespace MonoGameProj
         {
             // TODO: Add your initialization logic here
 
+            map = Content.Load<TiledMap>("C:\\Users\\joshu\\Documents\\MonoGameProj\\MonoGame\\MonoGameProj\\Levels\\firstMap");
+            mapRenderer = new TiledMapRenderer(GraphicsDevice);
+
+            var viewportAdapter = new BoxingViewportAdapter(Window, GraphicsDevice, 800, 480);
+            camera = new OrthographicCamera(viewportAdapter);
+
             base.Initialize();
         }
 
@@ -115,6 +129,8 @@ namespace MonoGameProj
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            mapRenderer.Update(gameTime); // doesn;t take 2 arguements apparently?
+
             deltaTimeCalculator.UpdateDeltaTime(gameTime);
             var deltaTime = deltaTimeCalculator.DeltaTime;
 
@@ -142,10 +158,11 @@ namespace MonoGameProj
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            spriteBatch.Begin();
+            spriteBatch.Begin(transformMatrix: camera.GetViewMatrix(), samplerState: SamplerState.PointClamp);
 
             renderingManager.DrawPlayers(playerList.GetEntityList(), spriteBatch);
             renderingManager.DrawBullets(bulletList.GetEntityList(), spriteBatch);
+            mapRenderer.Draw();
 
             spriteBatch.End();
 

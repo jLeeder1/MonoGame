@@ -18,5 +18,10 @@ namespace MonoGameProj.Constants
         {
             public static readonly string Default_Bullet_Sprite = "bullet";
         }
+
+        public static class MapAssets
+        {
+            public static readonly string First_Level = "firstMap";
+        }
     }
 }

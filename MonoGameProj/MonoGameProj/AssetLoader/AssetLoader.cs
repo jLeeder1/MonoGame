@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using MonoGame.Extended.Tiled;
 using System.Collections.Generic;
 
 namespace MonoGameProj.Assets
@@ -9,13 +10,16 @@ namespace MonoGameProj.Assets
     /// </summary>
     public class AssetLoader
     {
-        private ContentManager content;
-        private IDictionary<string, Texture2D> textureMap;
+        private readonly ContentManager content;
+        private readonly IDictionary<string, Texture2D> textureMap;
+        private readonly IDictionary<string, TiledMap> tiledMaps;
 
         public AssetLoader(ContentManager content)
         {
             this.content = content;
             textureMap = new Dictionary<string, Texture2D>();
+            tiledMaps = new Dictionary<string, TiledMap>();
+
         }
 
         /// <summary>
@@ -34,6 +38,24 @@ namespace MonoGameProj.Assets
             textureMap.Add(textureName, loadedTexture);
 
             return loadedTexture;
+        }
+
+        /// <summary>
+        /// Retrieives a TiledMap based on a given name. Stores loaded tildM maps in a <c>Dictionary<string, TiledMap></c>
+        /// </summary>
+        /// <param name="tiledMapName"></param>
+        /// <returns><c>TiledMap</c> of game asset</returns>
+        public TiledMap RetrieveTiledMap(string tiledMapName)
+        {
+            if (tiledMaps.ContainsKey(tiledMapName))
+            {
+                return tiledMaps[tiledMapName];
+            }
+
+            TiledMap loadedMap = content.Load<TiledMap>(tiledMapName);
+            tiledMaps.Add(tiledMapName, loadedMap);
+
+            return loadedMap;
         }
     }
 }

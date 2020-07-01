@@ -25,6 +25,11 @@
 /processorParam:TextureFormat=Color
 /build:bullet.png
 
+#begin firstMap.tmx
+/importer:
+/processor:
+/build:firstMap.tmx
+
 #begin target.png
 /importer:TextureImporter
 /processor:TextureProcessor
